@@ -415,6 +415,7 @@ nav#globalnav h1 a {
   display: block;
   padding: 18px 15px;
   font-size: 30px;
+　font-family: "Noto Serif JP", serif; 
 }
 
 nav#globalnav h1 a:hover {
