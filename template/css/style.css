@@ -501,10 +501,9 @@ header {
 }
 
 header img {
+  width: 100%;
   height: 500px;
-  max-width: 960px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 header img.top-pc {
