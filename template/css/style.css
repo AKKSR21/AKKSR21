@@ -817,7 +817,7 @@ a#totop:hover:before {
     content: '';
     display: block;
     width: 100%;
-    max-width: 600px;
+    max-width: 95%;
     height: 2px;
     background: black;
     margin: 10px 0 40px;
