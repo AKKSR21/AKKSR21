@@ -8,7 +8,7 @@
   リセットCSS
   基本的には触らないでください
   ========================================== */
-@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;500&family=Kosugi&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;500&family=YuMincho&display=swap");
 input[type="submit"] {
   -webkit-appearance: none;
   border-radius: 0;
@@ -170,7 +170,7 @@ ol.list li:before {
   position: absolute;
   counter-increment: number;
   content: counter(number);
-  font-family: "Josefin Sans", "Kosugi", cursive;
+  font-family: "Noto Serif JP", "YuMincho", Hiragino Mincho ProN;
   position: absolute;
   margin: auto;
   top: 6px;
@@ -251,28 +251,28 @@ strong.marker {
 }
 
 h1 {
-  font-family: "Noto Serif JP", "Kosugi", cursive;
+  font-family: "Noto Serif JP", "YuMincho", Hiragino Mincho ProN;
 }
 
 h2 {
-  font-family: "Josefin Sans", "Kosugi", cursive;
+  font-family: "Noto Serif JP", "YuMincho", Hiragino Mincho ProN;
   text-align: center;
 }
 
 h3 {
-  font-family: "Josefin Sans", "Kosugi", cursive;
+  font-family: "Noto Serif JP", "YuMincho", Hiragino Mincho ProN;
   border-left: 3px solid #9ed200;
   padding: 0px 15px;
   margin: 2em 0 1em;
 }
 
 h4 {
-  font-family: "Josefin Sans", "Kosugi", cursive;
+  font-family: "Noto Serif JP", "YuMincho", Hiragino Mincho ProN;
   margin: 2em 0 0em;
 }
 
 h5 {
-  font-family: "Josefin Sans", "Kosugi", cursive;
+  font-family: "Noto Serif JP", "YuMincho", Hiragino Mincho ProN;
   font-size: 18px;
   margin: 10px auto 5px;
 }
@@ -704,7 +704,7 @@ form.mailform textarea {
   background: #fcfcfc;
   -webkit-transition: 0.3s;
   transition: 0.3s;
-  font-family: "Josefin Sans", "Kosugi", cursive;
+  font-family: "Noto Serif JP", "YuMincho", Hiragino Mincho ProN;
 }
 
 form.mailform textarea:focus {
@@ -723,7 +723,7 @@ form.mailform input {
   background: #fcfcfc;
   -webkit-transition: background 0.3s;
   transition: background 0.3s;
-  font-family: "Josefin Sans", "Kosugi", cursive;
+  font-family: "Noto Serif JP", "YuMincho", Hiragino Mincho ProN;
 }
 
 form.mailform input:focus {
@@ -809,7 +809,7 @@ a#totop:hover:before {
     padding: 80px 0;
   }
   h2 {
-    font-size: 40px;
+    font-size: 30px;
   }
   h2:after {
     content: '';
