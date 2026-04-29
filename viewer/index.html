@@ -3,16 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Viewer</title>
+  <title>作品タイトル</title>
 
-  <!-- これがCDN -->
-  <script src="https://cdn.jsdelivr.net/npm/@toralab/tora-viewer@latest"></script>
-  
+  <script src="https://cdn.jsdelivr.net/npm/@toralab/tora-viewer@1"></script>
 
   <script>
     function openViewer() {
       toraViewer([
-        './assets/004.jpg',
         './assets/005.jpg',
         './assets/006.jpg',
         './assets/007.jpg',
@@ -22,11 +19,14 @@
         './assets/011.jpg'
       ]);
     }
-
-    window.addEventListener('DOMContentLoaded', openViewer);
   </script>
 </head>
 
 <body>
+
+  <p style="text-align:center; margin-top:50px;">
+    <button onclick="openViewer()">漫画を読む</button>
+  </p>
+
 </body>
 </html>
