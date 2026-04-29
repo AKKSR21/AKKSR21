@@ -812,17 +812,6 @@ a#totop:hover:before {
     font-size: 30px;
   }
 
-   
-  h2:after {
-    content: '';
-    display: block;
-    width: 100%;
-    max-width: 90%;
-    height: 1px;
-    background: black;
-    margin: 10px 0 40px;
-  }
-
 
   h3 {
     font-size: 24px;
