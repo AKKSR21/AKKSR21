@@ -842,7 +842,8 @@ a#totop:hover:before {
     display: none;
   }
   header {
-    max-height: 600px;
+    height: 60vh;
+    max-height: 500px;
   }
   header img.top-pc {
     display: block;
@@ -862,12 +863,13 @@ a#totop:hover:before {
 
 
 
+   
 
-   
-   
   nav#globalnav .container {
-    max-width: none;
+    max-width: 100%;
     margin: 0;
+    padding-left: 150px;
+    padding-right: 150px;
   }
 
   nav#globalnav > .container {
@@ -875,6 +877,10 @@ a#totop:hover:before {
     justify-content: space-between;
   }
 
+
+
+
+   
 
 
    
