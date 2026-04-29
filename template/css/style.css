@@ -219,7 +219,7 @@ strong.large {
 }
 
 strong.marker {
-  background: #f1fc40;
+  background: #ffd700;
 }
 
 .wrap {
@@ -314,7 +314,7 @@ table.center {
 }
 
 .box {
-  background: #f1fc40;
+  background: #ffd700;
   margin: 2em 0;
   padding: 15px;
 }
@@ -363,7 +363,7 @@ a.btn {
 }
 
 a.btn:hover {
-  background: #f1fc40;
+  background: #ffd700;
 }
 
 p {
@@ -667,7 +667,7 @@ footer ul.menu li a {
 }
 
 footer ul.menu li a:hover {
-  color: #f1fc40;
+  color: #ffd700;
 }
 
 footer ul.menu ul {
@@ -681,7 +681,7 @@ footer p#copyright {
 }
 
 footer p#copyright a:hover {
-  color: #f1fc40;
+  color: #ffd700;
 }
 
 form.mailform {
@@ -741,7 +741,7 @@ form.mailform input[type="submit"] {
 }
 
 form.mailform input[type="submit"]:focus, form.mailform input[type="submit"]:hover {
-  background: #f1fc40;
+  background: #ffd700;
   cursor: pointer;
 }
 
