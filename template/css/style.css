@@ -146,7 +146,7 @@ ul.list li:before {
   display: block;
   width: 8px;
   height: 8px;
-  background: #ffd700;
+  background: #ffc400;
   position: absolute;
   margin: auto;
   top: 9px;
@@ -175,7 +175,7 @@ ol.list li:before {
   margin: auto;
   top: 6px;
   left: -25px;
-  background: #ffd700;
+  background: #ffc400;
   width: 18px;
   height: 18px;
   border-radius: 2px;
@@ -195,7 +195,7 @@ dl.list dt:before {
   display: block;
   width: 8px;
   height: 8px;
-  background: #ffd700;
+  background: #ffc400;
   position: absolute;
   margin: auto;
   top: 9px;
@@ -261,7 +261,7 @@ h2 {
 
 h3 {
   font-family: "Noto Serif JP", "YuMincho", "Hiragino Mincho ProN";
-  border-left: 3px solid #ffd700;
+  border-left: 3px solid #ffc400;
   padding: 0px 15px;
   margin: 2em 0 1em;
 }
@@ -328,14 +328,14 @@ table.center {
 }
 
 a {
-  color: #ffd700;
+  color: #ffc400;
   text-decoration: none;
   -webkit-transition: color .3s;
   transition: color .3s;
 }
 
 a:focus, a:visited, a:active {
-  color: #ffd700;
+  color: #ffc400;
 }
 
 a:hover {
@@ -349,7 +349,7 @@ ul ul {
 
 a.btn {
   display: block;
-  background: #ffd700;
+  background: #ffc400;
   color: black;
   padding: 10px 30px;
   text-align: center;
@@ -419,7 +419,7 @@ nav#globalnav h1 a {
 }
 
 nav#globalnav h1 a:hover {
-  color: #ffd700;
+  color: #ffc400;
 }
 
 nav#globalnav p#menubtn {
@@ -444,7 +444,7 @@ nav#globalnav ul li a {
 }
 
 nav#globalnav ul li a:hover {
-  color: #ffd700;
+  color: #ffc400;
 }
 
 nav#globalnav ul#navmenu {
@@ -488,7 +488,7 @@ nav#globalnav.colorchange h1 a {
 }
 
 nav#globalnav.colorchange h1 a:hover {
-  color: #ffd700;
+  color: #ffc400;
 }
 
 nav#globalnav.colorchange p#menubtn {
@@ -736,7 +736,7 @@ form.mailform input[type="submit"] {
   max-width: 200px;
   margin: 20px auto 20px;
   padding: 15px 20px;
-  background: #ffd700;
+  background: #ffc400;
   border: none;
 }
 
@@ -753,7 +753,7 @@ a#totop {
   right: 0;
   width: 60px;
   height: 60px;
-  background: #ffd700;
+  background: #ffc400;
 }
 
 a#totop:before {
@@ -932,7 +932,7 @@ a#totop:hover:before {
     font-size: 20px;
   }
   nav#globalnav ul#navmenu li a:hover {
-    color: #ffd700;
+    color: #ffc400;
   }
   nav#globalnav.colorchange ul#navmenu li a {
     color: #ffffff;
@@ -940,7 +940,7 @@ a#totop:hover:before {
             filter: drop-shadow(0px 0px 3px #00000066);
   }
   nav#globalnav.colorchange ul#navmenu li a:hover {
-    color: #ffd700;
+    color: #ffc400;
   }
   ul.illust li {
     position: relative;
