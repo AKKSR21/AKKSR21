@@ -868,8 +868,8 @@ a#totop:hover:before {
   nav#globalnav .container {
     max-width: 100%;
     margin: 0;
-    padding-left: 110px;
-    padding-right: 110px;
+    padding-left: 80px;
+    padding-right: 80px;
   }
 
   nav#globalnav > .container {
@@ -1011,8 +1011,8 @@ a#totop:hover:before {
     max-width: 100% !important;
     width: 100% !important;
     margin: 0 !important;
-    padding-left: 110px !important;
-    padding-right: 110px !important;
+    padding-left: 80px !important;
+    padding-right: 80px !important;
   }
 
   nav#globalnav h1 a {
