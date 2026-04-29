@@ -1005,8 +1005,8 @@ a#totop:hover:before {
     max-width: 100% !important;
     width: 100% !important;
     margin: 0 !important;
-    padding-left: 60px !important;
-    padding-right: 60px !important;
+    padding-left: 150px !important;
+    padding-right: 150px !important;
   }
 
   nav#globalnav h1 a {
