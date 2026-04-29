@@ -1,33 +1,31 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tora Viewerデモ</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Viewer</title>
 
-  <script src="https://cdn.jsdelivr.net/npm/@toralab/tora-viewer"></script>
+  <!-- これがCDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@toralab/tora-viewer@latest"></script>
+  
+
   <script>
-    function open() {
+    function openViewer() {
       toraViewer([
-        './assets/1.png',
-        './assets/2.png',
-        './assets/3.png',
-        './assets/4.png',
-        './assets/5.png',
+        './assets/005.jpg',
+        './assets/006.jpg',
+        './assets/007.jpg',
+        './assets/008.jpg',
+        './assets/009.jpg',
+        './assets/010.jpg',
+        './assets/011.jpg'
       ]);
     }
-    document.addEventListener('DOMContentLoaded', function () {
-      open();
 
-      const openBtn = document.getElementById('open');
-      openBtn.addEventListener('click', open)
-    });
+    window.addEventListener('DOMContentLoaded', openViewer);
   </script>
 </head>
 
 <body>
-  <button id="open">open</button>
 </body>
-
 </html>
