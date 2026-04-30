@@ -5,62 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>漫画ビューアー</title>
     
-    <!-- パスの先頭に ./ を追加。これで「このHTMLがある場所と同じフォルダ内」を明示します -->
-    <link rel="stylesheet" href="./laymic/laymic.min.css">
+    <!-- CSS：相対パス（./をつけない形も試す） -->
+    <link rel="stylesheet" href="laymic/laymic.min.css">
     
     <style>
-        #laymic { 
-            opacity: 0; 
-            transition: opacity 0.5s;
-        }
-        #laymic img { 
-            width: 100%; 
-        }
-        body {
-            background-color: #333;
-            margin: 0;
-            padding: 0;
-        }
+        #laymic { opacity: 0; transition: opacity 0.5s; }
+        #laymic img { width: 100%; }
+        body { background-color: #333; margin: 0; padding: 0; color: white; }
+        #debug-log { position: fixed; bottom: 0; left: 0; background: rgba(0,0,0,0.8); font-size: 10px; z-index: 9999; }
     </style>
 </head>
 <body>
 
+    <!-- デバッグ用：画面に直接ログを表示します -->
+    <div id="debug-log"></div>
+
     <div id="laymic">
-      <img src="./assets/004.jpg">
-      <img src="./assets/005.jpg">
-      <img src="./assets/006.jpg">
-      <img src="./assets/007.jpg">
-      <img src="./assets/008.jpg">
-      <img src="./assets/009.jpg">
-      <img src="./assets/010.jpg">
-      <img src="./assets/011.jpg">
+      <img src="assets/004.jpg">
+      <img src="assets/005.jpg">
+      <img src="assets/006.jpg">
+      <img src="assets/007.jpg">
+      <img src="assets/008.jpg">
+      <img src="assets/009.jpg">
+      <img src="assets/010.jpg">
+      <img src="assets/011.jpg">
     </div>
 
-    <!-- JSにも ./ を追加 -->
-    <script src="./laymic/laymic.iife.min.js"></script>
+    <!-- JS：キャッシュを回避するために ?v=1 を末尾につけます -->
+    <script src="laymic/laymic.iife.min.js?v=1" onerror="document.getElementById('debug-log').innerHTML += 'JS読み込みエラーが発生しました<br>'"></script>
     
     <script>
+      function log(msg) {
+        console.log(msg);
+        document.getElementById('debug-log').innerHTML += msg + "<br>";
+      }
+
       function startLaymic() {
-        // 現在の状態をログに出してデバッグしやすくします
-        console.log("チェック中... Laymicの型:", typeof Laymic);
+        log("チェック中... Laymicの型: " + typeof Laymic);
 
         if (typeof Laymic !== 'undefined') {
           try {
-            new Laymic('#laymic', {
-              direction: 'rtl'
-            });
+            new Laymic('#laymic', { direction: 'rtl' });
             document.getElementById('laymic').style.opacity = 1;
-            console.log("★Laymic起動成功！");
+            log("★起動成功！");
           } catch (error) {
-            console.error("初期化エラー:", error);
+            log("初期化エラー: " + error);
           }
         } else {
-          console.log("Laymicを待機中... JSファイルが読み込まれるのを待っています。");
-          setTimeout(startLaymic, 500);
+          log("待機中... JSの読み込みが完了していません。");
+          setTimeout(startLaymic, 1000);
         }
       }
 
-      // ページの読み込みが終わってから開始
       window.onload = startLaymic;
     </script>
 </body>
