@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>PROJECT</title>
+  <script src="js/jquery.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/lightbox.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+</head>
+
+<body>
+
+  <nav id="globalnav" class="colorchange">
+    <div class="globalnav_bg"></div>
+    <div class="container">
+      <h1 class="logo"><a href="index.html">PROJECT</a></h1>
+      <p id="menubtn">&#9776;</p>
+        <ul id="navmenu">
+          <li><a href="sample1.html">Sample 1</a></li>
+          <li><a href="sample2.html">Sample 2</a></li>
+          <li><a href="#">MENU demo</a>
+            <ul>
+              <li><a href="index.html#about">about</a></li>
+              <li><a href="index.html#news">news</a></li>
+              <li><a href="index.html#gallery">gallery</a></li>
+              <li><a href="index.html#contact">contact</a></li>
+            </ul>
+          </li>
+        </ul>
+    </div>
+  </nav>
+
+<header id="eyecatch"> <!-- header始まり  -->
+
+<img src="img/top.jpg" alt="TEMPLATE - [PROJECT]" class="top-pc">
+<img src="img/top.jpg" alt="TEMPLATE - [PROJECT]" class="top-phone">
+<!--
+スマホで見た場合だけ見せる画像を変えたい場合は、
+下の行（class="top-phone"の方）でスマホで見せたい画像を指定してください。
+PCではきれいに表示されても、スマホで見ると魅せたいエリアが画面外に切り抜かれてしまう可能性があります。
+ -->
+
+</header> <!-- headerおわり  -->
+
+
+<main>
+
+  <section class="bgcolor2"> <!-- NEWSセクションはじまり -->
+    <!-- sectionにclass="bgcolor2"を与えると背景がグレーに、classを削除すると背景が白になります -->
+    <div class="container">
+      <h2 id="news">NEWS</h2>
+      <dl class="news">
+        <dt>2020.07.13</dt>
+        <dd>更新履歴やニュースなどを書くスペースです。</dd>
+      </dl>
+      <dl class="news">
+        <dt>2020.07.10</dt>
+        <dd>一行で使うとキレイですが、改行してもOK.<br>こんな感じです。</dd>
+      </dl>
+      <dl class="news">
+        <dt>2020.07.08</dt>
+        <dd>企画やイベントなどの告知サイトにおススメのテンプレートです。</dd>
+      </dl>
+      <dl class="news">
+        <dt>2020.07.02</dt>
+        <dd><a href="#">リンクを貼ることもできます。</a></dd>
+      </dl>
+      <dl class="news">
+        <dt>2020.07.01</dt>
+        <dd>サンプルサンプルサンプル。</dd>
+      </dl>
+
+    </div>
+  </section> <!-- NEWSセクションおわり -->
+
+  <section> <!-- ABOUTセクションはじまり -->
+    <div class="container">
+
+      <h2 id="about">ABOUT</h2>
+
+      <p>この企画は、こういう趣旨の企画です。<br>
+      主催は誰々（Twitter <a href="#">@xxx_xxx</a>）です。
+      参加したい方はDMにてお気軽にご連絡ください。</p>
+
+      <p>PROJECTと銘打っていますが、個人サイトにももちろん使えます。各種展示用ページも用意しています。</p>
+
+      <p>メニューからサンプルページに飛ぶと各タグのデザインが見られます。</p>
+
+      <div class="wrap"> <!-- 2カラムはじまり -->
+        <div class="inner"> <!-- 左カラム始まり -->
+          <p>div class="wrap"の中にdiv class="inner"を入れることで、<strong>PCから見ると横に並び。スマホから見ると縦に並ぶボックス</strong>が作れます。２カラムのみ対応なので、innerを増やしても３列にはなりません。<br>
+          企画・イベント告知サイトなら、告知用twitterアカウントを埋め込んでも良いかと思います。</p>
+
+          <a href="https://do.gt-gt.org/twitter-embed/" class="btn" target="_blank">埋め込み方法</a>
+        </div> <!-- 左カラムおわり -->
+        <div class="inner"> <!-- 右カラム始まり -->
+          <!-- <a class="twitter-timeline" data-height="400" href="https://twitter.com/gt_gt_do?ref_src=twsrc%5Etfw">Tweets by gt_gt_do</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
+        </div> <!-- 右カラムおわり -->
+      </div> <!-- 2カラムおわり -->
+
+    </div>
+  </section> <!-- ABOUTセクションおわり -->
+
+  <section class="bgcolor2"> <!-- GALLERYセクションはじまり -->
+    <div class="container">
+
+      <h2 id="gallery">GALLERY</h2>
+
+      <p class="center">ギャラリーには<a href="https://do.gt-gt.org/product/lightbox/" target="_blank">lightbox</a>を使用しています。<br>
+      中央寄せしたい段落にはclass="center"を付けてください。</p>
+
+      <ul class="illust">
+        <li><a href="img/01.jpg" data-lightbox="illust" data-title="ここに説明"><img src="img/01-s.jpg"></a></li>
+        <li><a href="img/02.jpg" data-lightbox="illust" data-title="ここに説明"><img src="img/02-s.jpg"></a></li>
+        <li><a href="img/01.jpg" data-lightbox="illust" data-title="ここに説明"><img src="img/01-s.jpg"></a></li>
+        <li><a href="img/02.jpg" data-lightbox="illust" data-title="ここに説明"><img src="img/02-s.jpg"></a></li>
+        <li><a href="img/01.jpg" data-lightbox="illust" data-title="ここに説明"><img src="img/01-s.jpg"></a></li>
+        <li><a href="img/02.jpg" data-lightbox="illust" data-title="ここに説明"><img src="img/02-s.jpg"></a></li>
+        <li><a href="img/01.jpg" data-lightbox="illust" data-title="ここに説明"><img src="img/01-s.jpg"></a></li>
+        <li><a href="img/02.jpg" data-lightbox="illust" data-title="ここに説明"><img src="img/02-s.jpg"></a></li>
+        <li><a href="img/01.jpg" data-lightbox="illust" data-title="ここに説明"><img src="img/01-s.jpg"></a></li>
+        <li><a href="img/02.jpg" data-lightbox="illust" data-title="ここに説明"><img src="img/02-s.jpg"></a></li>
+        <li><a href="img/01.jpg" data-lightbox="illust" data-title="ここに説明"><img src="img/01-s.jpg"></a></li>
+        <li><a href="img/02.jpg" data-lightbox="illust" data-title="ここに説明"><img src="img/02-s.jpg"></a></li>
+      </ul>
+
+    </div>
+
+  </section> <!-- GALLERYセクションおわり -->
+
+  <section class="bgcolor3"> <!-- CONTACTセクションはじまり -->
+    <div class="container">
+
+      <h2 id="contact">CONTACT</h2>
+      <p class="center">このままでは動作しません。<br>
+        メールフォームを設置する場合は<a href="https://do.gt-gt.org/setting-mailform/" target="_blank">この記事</a>を参考に設置してみてください</p>
+      <form method="post" action="ここにアクション" class="mailform">
+        <input type="text" name="message" placeholder="お名前">
+        <input type="mail" name="message" placeholder="メールアドレス">
+        <textarea rows="5" name="message" placeholder="本文"></textarea>
+        <input type="submit" value="Send">
+      </form>
+
+    </div>
+  </section> <!-- CONTACTセクションおわり -->
+
+</main>
+
+<!-- 最上部に戻るボタンここから -->
+<a href="#" id="totop"></a>
+<!-- 最上部に戻るボタンここまで -->
+
+<footer>
+<div class="container">
+
+<!-- フッターにコンテンツを入れない場合、削除するエリアここから -->
+  <div class="wrap-3col">  <!-- wrap-3colここから -->
+
+    <div class="inner">
+      <h1>PROJECT</h1>
+      <p class="memo">http://xxx.xxx.com/<br>
+      管理人名</p>
+      <p class="memo">リンクフリー・etc...<br>
+      サイトについての情報を書いてもいい感じ<br>
+      バナーを貼ってもOK</p>
+    </div>  <!-- inner左カラムここまで -->
+
+    <div class="inner">
+      <ul class="menu">
+        <li><a href="#">MENU 1</a></li>
+        <li><a href="#">MENU 2</a>
+          <ul>
+            <li><a href="#">sub menu 1</a></li>
+            <li><a href="#">sub menu 2</a></li>
+            <li><a href="#">sub menu 3</a></li>
+          </ul>
+        </li>
+        <li><a href="#">MENU 3</a></li>
+        <li><a href="#">MENU 4</a></li>
+      </ul>
+    </div>  <!-- inner中央カラムここまで -->
+
+    <div class="inner">
+      <p>twitterタイムラインなどはここに埋め込んでも〇</p>
+    </div>  <!-- inner右カラムここまで -->
+
+  </div>  <!-- wrap-3colここまで -->
+<!-- フッターにコンテンツを入れない場合、削除するエリアここまで -->
+
+<p id="copyright"><a href="https://do.gt-gt.org/" target="_blank">template by do.</a></p>
+
+</div>
+</footer>
+
+<script src="js/common.js"></script>
+<script src="js/lightbox.js"></script>
+</body>
+
+</html>
