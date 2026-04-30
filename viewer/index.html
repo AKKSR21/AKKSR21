@@ -4,18 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>漫画ビューアー</title>
-    <!-- CSSは自分のリポジトリのものを使用 -->
-    <link rel="stylesheet" href="laymic/laymic.min.css">
+    <!-- CSSは一旦ネットから読み込みますが、万が一のために読み込みチェックを入れます -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/laymic@1.2.2/dist/laymic.min.css">
     <style>
         body { background-color: #1a1a1a; margin: 0; padding: 0; color: white; }
         #laymic { opacity: 0; transition: opacity 0.5s; }
-        #laymic img { width: 100%; }
-        #status-box { position: fixed; top: 10px; left: 10px; background: rgba(0,0,0,0.8); padding: 10px; z-index: 10000; border: 1px solid #555; font-size: 12px; }
+        #laymic img { width: 100%; display: block; }
+        #fatal-error { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: #ff6b6b; display: none; }
     </style>
 </head>
 <body>
 
-    <div id="status-box">状態: ローカルファイル確認中...</div>
+    <div id="fatal-error">
+        <h3>起動できませんでした</h3>
+        <p id="error-msg"></p>
+    </div>
 
     <div id="laymic">
       <img src="assets/004.jpg">
@@ -28,33 +31,37 @@
       <img src="assets/011.jpg">
     </div>
 
+    <!-- ここに外部ファイルの代わりに、JSを読み込むためのスクリプトを設置 -->
+    <script src="https://unpkg.com/laymic@1.2.2/dist/laymic.iife.min.js"></script>
+
     <script>
-      // 自分のGitHub PagesにあるJSファイルを強制的に読み込む
-      const script = document.createElement('script');
-      
-      // パスに ./ をつけて、現在のフォルダ(viewer)内を探すよう明示
-      script.src = "./laymic/laymic.iife.min.js";
-      
-      script.onload = () => {
-        document.getElementById('status-box').innerHTML = "JS読み込み成功！起動します...";
-        try {
+      // ページ読み込み完了時に実行
+      window.addEventListener('DOMContentLoaded', () => {
+        const checkLaymic = () => {
           if (typeof Laymic !== 'undefined') {
-            new Laymic('#laymic', { direction: 'rtl' });
-            document.getElementById('laymic').style.opacity = 1;
-            document.getElementById('status-box').style.display = "none";
+            try {
+              new Laymic('#laymic', {
+                direction: 'rtl'
+              });
+              document.getElementById('laymic').style.opacity = 1;
+              console.log("Laymic successfully started!");
+            } catch (e) {
+              showError("初期化エラー: " + e.message);
+            }
           } else {
-            document.getElementById('status-box').innerHTML = "エラー: ファイルは見つかりましたが、中身が空か壊れています。";
+            showError("ライブラリが見つかりません。ネット接続を確認するか、F5キーで再読み込みしてください。");
           }
-        } catch (e) {
-          document.getElementById('status-box').innerHTML = "起動失敗: " + e.message;
+        };
+
+        function showError(msg) {
+          const errDiv = document.getElementById('fatal-error');
+          errDiv.style.display = 'block';
+          document.getElementById('error-msg').innerText = msg;
         }
-      };
 
-      script.onerror = () => {
-        document.getElementById('status-box').innerHTML = "❌ 自分のリポジトリ内のJSも見つかりません。<br>ファイル名や場所が正しいか再確認してください。";
-      };
-
-      document.body.appendChild(script);
+        // 念のため少しだけ待ってから開始（読み込み待ち）
+        setTimeout(checkLaymic, 500);
+      });
     </script>
 </body>
 </html>
