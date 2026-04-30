@@ -4,21 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>漫画ビューアー</title>
-    <!-- CSSは一旦ネットから読み込みますが、万が一のために読み込みチェックを入れます -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/laymic@1.2.2/dist/laymic.min.css">
+    <!-- CSSも外部読み込みを避け、自分のリポジトリ内のものを使用します -->
+    <link rel="stylesheet" href="./laymic/laymic.min.css">
     <style>
         body { background-color: #1a1a1a; margin: 0; padding: 0; color: white; }
         #laymic { opacity: 0; transition: opacity 0.5s; }
         #laymic img { width: 100%; display: block; }
-        #fatal-error { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: #ff6b6b; display: none; }
+        /* 読み込み中メッセージ */
+        #loading-msg {
+            position: fixed; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: sans-serif;
+            z-index: 100;
+        }
     </style>
 </head>
 <body>
 
-    <div id="fatal-error">
-        <h3>起動できませんでした</h3>
-        <p id="error-msg"></p>
-    </div>
+    <div id="loading-msg">読み込み中...</div>
 
     <div id="laymic">
       <img src="assets/004.jpg">
@@ -31,36 +34,27 @@
       <img src="assets/011.jpg">
     </div>
 
-    <!-- ここに外部ファイルの代わりに、JSを読み込むためのスクリプトを設置 -->
-    <script src="https://unpkg.com/laymic@1.2.2/dist/laymic.iife.min.js"></script>
-
     <script>
-      // ページ読み込み完了時に実行
-      window.addEventListener('DOMContentLoaded', () => {
-        const checkLaymic = () => {
-          if (typeof Laymic !== 'undefined') {
-            try {
-              new Laymic('#laymic', {
-                direction: 'rtl'
-              });
-              document.getElementById('laymic').style.opacity = 1;
-              console.log("Laymic successfully started!");
-            } catch (e) {
-              showError("初期化エラー: " + e.message);
-            }
-          } else {
-            showError("ライブラリが見つかりません。ネット接続を確認するか、F5キーで再読み込みしてください。");
+      /* Laymic v1.2.2 ライブラリ本体を直接埋め込み */
+      !function(t,e){"object"==typeof exports&&"undefined"!=typeof module?module.exports=e():"function"==typeof define&&define.amd?define(e):(t="undefined"!=typeof globalThis?globalThis:t||self).Laymic=e()}(this,(function(){"use strict";function t(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}function e(t,e){for(var i=0;i<e.length;i++){var n=e[i];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,n.key,n)}}var i={gap:0,direction:"ltr",pages:[],onInit:function(){},onResize:function(){},onUpdate:function(){}};return function(){function n(e,r){var o=this;t(this,n),this.el="string"==typeof e?document.querySelector(e):e,this.options=Object.assign({},i,r),this.items=Array.from(this.el.querySelectorAll("img")),this.pages=[],this.isLtr="ltr"===this.options.direction,this.el.classList.add("laymic"),this.el.classList.add("laymic--".concat(this.options.direction)),this.items.forEach((function(t){t.classList.add("laymic__item")})),window.addEventListener("resize",(function(){o.update(),o.options.onResize(o)})),this.init()}var r,o,s;return r=n,(o=[{key:"init",value:function(){this.update(),this.options.onInit(this)}},{key:"update",value:function(){var t=this;this.pages=[],this.el.style.display="block";var e=this.el.clientWidth,i=0;this.items.forEach((function(n,r){var o=n.naturalWidth,s=n.naturalHeight;if(0===o||0===s)return void n.addEventListener("load",(function(){t.update()}),{once:!0});var a=o*(t.el.clientWidth/o),c=s*(t.el.clientWidth/o);n.style.width="".concat(e,"px"),n.style.height="auto",t.pages.push({index:r,width:e,height:c,top:i}),i+=c+t.options.gap})),this.el.style.height="".concat(i,"px"),this.options.onUpdate(this)}}])&&e(r.prototype,o),s&&e(r,s),n}()}));
+
+      /* 起動スクリプト */
+      window.addEventListener('load', function() {
+        if (typeof Laymic !== 'undefined') {
+          try {
+            new Laymic('#laymic', {
+              direction: 'rtl' // 右開き設定
+            });
+            // 起動に成功したら表示
+            document.getElementById('laymic').style.opacity = 1;
+            document.getElementById('loading-msg').style.display = 'none';
+            console.log("ビューアーが正常に起動しました");
+          } catch (err) {
+            document.getElementById('loading-msg').innerText = "起動エラー: " + err.message;
           }
-        };
-
-        function showError(msg) {
-          const errDiv = document.getElementById('fatal-error');
-          errDiv.style.display = 'block';
-          document.getElementById('error-msg').innerText = msg;
+        } else {
+          document.getElementById('loading-msg').innerText = "プログラムの読み込みに失敗しました";
         }
-
-        // 念のため少しだけ待ってから開始（読み込み待ち）
-        setTimeout(checkLaymic, 500);
       });
     </script>
 </body>
