@@ -1,39 +1,32 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Viewer</title>
-
-<link rel="stylesheet" href="https://unpkg.com/laymic/dist/laymic.min.css">
-<script src="https://unpkg.com/laymic/dist/laymic.iife.min.js"></script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>漫画ビューアー</title>
+    
+    <!-- CSSの読み込み：distフォルダの中のファイルを指定します -->
+    <link rel="stylesheet" href="laymic/dist/laymic.min.css">
 </head>
-
 <body>
 
-<div class="laymic_template" data-viewer-id="manga1">
-  <img data-src="./assets/004.jpg">
-  <img data-src="./assets/005.jpg">
-  <img data-src="./assets/006.jpg">
-  <img data-src="./assets/007.jpg">
-  <img data-src="./assets/008.jpg">
-  <img data-src="./assets/009.jpg">
-  <img data-src="./assets/010.jpg">
-  <img data-src="./assets/011.jpg">
-</div>
+    <!-- 漫画の表示エリア：assetsフォルダの中の画像を指定します -->
+    <div id="laymic">
+      <img src="assets/001.jpg">
+      <img src="assets/002.jpg">
+      <img src="assets/003.jpg">
+      <!-- 必要な分だけ img タグを並べます -->
+    </div>
 
-<button class="laymic_opener" data-for="manga1">
-  漫画を読む
-</button>
-
-<script>
-window.addEventListener("load", function () {
-  if (window.laymicInit) {
-    laymicInit();
-  }
-});
-</script>
-
+    <!-- JSの読み込み：distフォルダの中のファイルを指定します -->
+    <script src="laymic/dist/laymic.iife.min.js"></script>
+    
+    <script>
+      // Laymicの実行
+      new Laymic('#laymic', {
+        // オプションが必要な場合はここに書きます（例：見開き設定など）
+        // direction: 'rtl' // 右から左（縦書き漫画用）
+      });
+    </script>
 </body>
 </html>
