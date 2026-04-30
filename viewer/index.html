@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Viewer</title>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/laymic@latest/dist/laymic.min.css">
-<script src="https://cdn.jsdelivr.net/npm/laymic@latest/dist/laymic.iife.min.js" defer></script>
+<link rel="stylesheet" href="https://unpkg.com/laymic/dist/laymic.min.css">
+<script src="https://unpkg.com/laymic/dist/laymic.iife.min.js"></script>
 
 <style>
 html, body {
@@ -25,7 +25,7 @@ html, body {
 <div id="viewer"></div>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
+window.addEventListener("load", function () {
   new Laymic({
     el: "#viewer",
     pages: [
