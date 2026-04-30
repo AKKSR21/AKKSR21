@@ -4,48 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>漫画ビューアー</title>
-    
-    <!-- ネット上の公式ファイルを使用 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/laymic@latest/dist/laymic.min.css">
-    
+    <!-- CSS読み込み（末尾にランダムな数字をつけてキャッシュを強制回避） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/laymic@latest/dist/laymic.min.css?v=123">
     <style>
         body { background-color: #1a1a1a; margin: 0; padding: 0; color: white; }
         #laymic { opacity: 0; transition: opacity 0.5s; }
-        /* 画像がない時に枠だけ表示して確認しやすくする */
-        #laymic img { width: 100%; min-height: 200px; border: 1px solid #444; }
-        #error-display { padding: 20px; color: #ff6b6b; font-family: monospace; }
+        #laymic img { width: 100%; }
+        #status-box {
+            position: fixed; top: 10px; left: 10px; 
+            background: rgba(0,0,0,0.8); padding: 15px; 
+            border: 1px solid white; z-index: 10000; font-size: 14px;
+        }
     </style>
 </head>
 <body>
 
-    <div id="error-display"></div>
-
-    <div id="laymic">
-      <!-- ここで画像が読み込めるかテストします -->
-      <img src="assets/004.jpg" onerror="document.getElementById('error-display').innerHTML += 'エラー: assets/004.jpg が見つかりません<br>'">
-      <img src="assets/005.jpg" onerror="document.getElementById('error-display').innerHTML += 'エラー: assets/005.jpg が見つかりません<br>'">
-      <img src="assets/006.jpg" onerror="document.getElementById('error-display').innerHTML += 'エラー: assets/006.jpg が見つかりません<br>'">
-      <img src="assets/007.jpg" onerror="document.getElementById('error-display').innerHTML += 'エラー: assets/007.jpg が見つかりません<br>'">
-      <img src="assets/008.jpg" onerror="document.getElementById('error-display').innerHTML += 'エラー: assets/008.jpg が見つかりません<br>'">
-      <img src="assets/009.jpg" onerror="document.getElementById('error-display').innerHTML += 'エラー: assets/009.jpg が見つかりません<br>'">
-      <img src="assets/010.jpg" onerror="document.getElementById('error-display').innerHTML += 'エラー: assets/010.jpg が見つかりません<br>'">
-      <img src="assets/011.jpg" onerror="document.getElementById('error-display').innerHTML += 'エラー: assets/011.jpg が見つかりません<br>'">
+    <!-- 状況を画面に表示するボックス -->
+    <div id="status-box">
+        状態: 読み込み中...<br>
+        <span id="lib-status">ライブラリ: 未完了</span><br>
+        <span id="img-status">画像: チェック中</span>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/laymic@latest/dist/laymic.iife.min.js"></script>
+    <div id="laymic">
+      <img src="assets/004.jpg" onerror="imgError(this)">
+      <img src="assets/005.jpg" onerror="imgError(this)">
+      <img src="assets/006.jpg" onerror="imgError(this)">
+      <img src="assets/007.jpg" onerror="imgError(this)">
+      <img src="assets/008.jpg" onerror="imgError(this)">
+      <img src="assets/009.jpg" onerror="imgError(this)">
+      <img src="assets/010.jpg" onerror="imgError(this)">
+      <img src="assets/011.jpg" onerror="imgError(this)">
+    </div>
+
+    <!-- JS読み込み：これでもダメならブラウザのせいである可能性が高いです -->
+    <script src="https://cdn.jsdelivr.net/npm/laymic@latest/dist/laymic.iife.min.js?v=123" 
+            onload="libLoaded()" onerror="libError()"></script>
     
     <script>
+      function libLoaded() {
+          document.getElementById('lib-status').innerHTML = "ライブラリ: ✅成功";
+          document.getElementById('lib-status').style.color = "lime";
+      }
+      function libError() {
+          document.getElementById('lib-status').innerHTML = "ライブラリ: ❌読み込み失敗";
+          document.getElementById('lib-status').style.color = "red";
+      }
+      function imgError(el) {
+          document.getElementById('img-status').innerHTML = "画像: ❌一部読み込み失敗 (" + el.src.split('/').pop() + ")";
+          document.getElementById('img-status').style.color = "orange";
+      }
+
       window.addEventListener('load', function() {
         if (typeof Laymic !== 'undefined') {
           try {
             new Laymic('#laymic', { direction: 'rtl' });
             document.getElementById('laymic').style.opacity = 1;
-            console.log("Laymic起動完了");
+            document.getElementById('status-box').style.display = "none"; // 成功したら消す
           } catch (e) {
-            document.getElementById('error-display').innerHTML += '起動失敗: ' + e;
+            alert("起動時にエラーが発生しました: " + e);
           }
-        } else {
-          document.getElementById('error-display').innerHTML += 'Laymicライブラリが読み込めていません。';
         }
       });
     </script>
