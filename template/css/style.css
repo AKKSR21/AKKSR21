@@ -1064,19 +1064,26 @@ nav#globalnav .top-news-box::-webkit-scrollbar {
 
 /* --- レスポンシブ調整 --- */
 
-/* PC版：メニューリストの左側に配置 */
+/* PC版：メニューのさらに右、一番端に配置 */
 @media only screen and (min-width: 768px) {
+  nav#globalnav .container {
+    justify-content: flex-start; /* 左詰めに並べる */
+  }
+  nav#globalnav ul#navmenu {
+    margin-left: auto; /* メニュー全体を右に押し出す */
+  }
   nav#globalnav .top-news-box {
-    margin-left: auto;   /* ロゴから離して右へ押し出す */
-    margin-right: 20px;  /* メニューとの間に隙間を作る */
+    margin-left: 20px;  /* メニューとボックスの間の隙間 */
+    margin-right: 0;    /* 右端にピタッと寄せる */
   }
 }
 
-/* スマホ版：ロゴの隣に配置し、三本線メニューと被らないようにする */
+/* スマホ版：三本線メニュー(menubtn)の内側に配置 */
 @media only screen and (max-width: 767px) {
   nav#globalnav .top-news-box {
+    position: absolute;
+    right: 70px; /* 三本線ボタンの左横に固定 */
     width: 150px;
-    margin-left: 10px;
-    margin-right: 60px; /* 三本線メニューボタンの場所を確保 */
+    margin: 0;
   }
 }
