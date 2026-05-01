@@ -992,7 +992,6 @@ a#totop:hover:before {
   width: 100%;
 }
 
-
 /* ナビゲーションメニューのフォント変更 */
 nav#globalnav ul#navmenu li a {
   font-family: "Kiwi Maru", "Zen Maru Gothic", "Zen Kurenaido", serif;
@@ -1001,3 +1000,67 @@ nav#globalnav ul#navmenu li a {
 nav#globalnav ul li a {
   font-family: "Kiwi Maru", "Zen Maru Gothic", "Zen Kurenaido", serif;
 }
+
+
+/* 更新情報ボックス */
+#eyecatch {
+  position: relative; /* ボックスの配置基準 */
+}
+
+.top-news-box {
+  position: absolute;
+  top: 100px;        /* 上からの位置（ナビに被らないよう調整） */
+  right: 20px;       /* 右からの位置 */
+  width: 280px;      /* ボックスの幅 */
+  max-height: 80px;  /* 高さを抑えて目立たせない */
+  background: rgba(255, 255, 255, 0.3); /* 背景を白の半透明に（画像が透ける） */
+  backdrop-filter: blur(4px);           /* 背景を少しぼかすとおしゃれです */
+  border-radius: 15px;                  /* 角を丸く */
+  padding: 10px 15px;
+  font-size: 12px;
+  overflow-y: auto;                     /* 中身が多い時だけスクロール */
+  z-index: 5;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* スクロールバーのカスタマイズ（目立たないように） */
+.top-news-box::-webkit-scrollbar {
+  width: 4px;
+}
+.top-news-box::-webkit-scrollbar-track {
+  background: transparent;
+}
+.top-news-box::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2); /* ボックスに馴染む薄い色 */
+  border-radius: 10px;
+}
+
+/* ボックス内のテキストレイアウト */
+.news-inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 0;
+  color: #242424; /* 文字色は背景に合わせて調整してください */
+}
+
+.news-inline dt {
+  font-weight: bold;
+  width: 100%; /* 日付を一行目に */
+}
+
+.news-inline dd {
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* スマホでは非表示、または位置調整する場合 */
+@media (max-width: 767px) {
+  .top-news-box {
+    width: 200px;
+    top: 80px;
+    right: 10px;
+  }
+}
+
+
