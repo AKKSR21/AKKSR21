@@ -979,8 +979,19 @@ a#totop:hover:before {
 
 /* ABOUTセクション中央寄せ*/
 .about-section .container {
-  text-align: center;
+  text-align: center; /* 文を中央寄せ */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Flexboxで中身を中央に配置 */
 }
+
+/* 中のテキストが左に寄らないように調整 */
+.about-section p, 
+.about-section h4 {
+  text-align: center;
+  width: 100%;
+}
+
 
 /* ナビゲーションメニューのフォント変更 */
 nav#globalnav ul#navmenu li a {
