@@ -1063,19 +1063,22 @@ nav#globalnav .top-news-box::-webkit-scrollbar {
 }
 
 /* --- レスポンシブ調整 --- */
-
 @media only screen and (min-width: 768px) {
+  /* 親要素（container）の幅制限を、ナビゲーション内だけ解除する */
   nav#globalnav .container {
-    justify-content: flex-start; /* 全体を左詰めの流れにする */
+    max-width: none !important; /* 960pxの制限を突破させる */
+    width: 100%;
+    padding: 0 20px; /* ウィンドウの端にベタ付けしたくない場合はここで調整 */
+    display: flex;
+    align-items: center;
   }
 
   nav#globalnav ul#navmenu {
-    margin-left: 40px;  /* ロゴからメニューまでの距離（お好みで調整） */
-    /* margin-left: auto; は削除します */
+    margin-left: 40px; /* ロゴからの距離 */
   }
 
   nav#globalnav .top-news-box {
-    margin-left: auto;  /* ★これがポイント！メニューとの間を最大まで開けて右端に飛ばす */
-    margin-right: 15px;    /* 右端ピタッ */
+    margin-left: auto; /* 余白を全部左に作って右へ飛ばす */
+    margin-right: 20px;   /* ウィンドウの右端に寄せる */
   }
 }
