@@ -977,14 +977,7 @@ a#totop:hover:before {
   }
 }
 
-
-/* ABOUTセクション内のテキストをすべて中央寄せにする */
-section .container {
+/* ABOUTセクション中央寄せ*/
+.about-section .container {
   text-align: center;
-}
-
-/* pタグなどの最大幅が設定されている場合の調整（念のため） */
-section .container p {
-  margin-left: auto;
-  margin-right: auto;
 }
