@@ -1095,13 +1095,13 @@ nav#globalnav .top-news-box {
 /* SNSアイコンを横並びにする */
 .footer-sns {
   display: flex;       /* 横並び*/
-  gap: 15px;           /* アイコン同士の間隔 */
+  gap: 18px;           /* アイコン同士の間隔 */
   margin-top: 10px;    /* 見出しとの間隔 */
 }
 
 /* SNSアイコンの大きさを調整 */
 .footer-sns img {
-  width: 32px;
+  width: 28px;
   height: auto;
   object-fit: contain; /* 画像が歪まないようにする */
   cursor: pointer;     /* 重なった時に指マークにする */
