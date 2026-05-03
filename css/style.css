@@ -558,16 +558,18 @@ ul.illust {
   display: -webkit-box;
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-start; /* 左寄せ */
   margin: 30px auto;
   list-style: none;
+  gap: 15px 3%; /* 【新機能】縦の隙間を15px、横の隙間を3%に固定 */
 }
 
 ul.illust li {
   position: relative;
-  display: block;        /* 縦重なり防止の決め手 */
+  display: block;
   height: auto;
-  width: calc(100% / 3 - 6px); /* 3列計算（隙間多め） */
-  margin-bottom: 20px;   /* 縦の隙間を確保 */
+  width: 31%;           /* 横幅を少し狭くして隙間を作る */
+  margin-bottom: 0;     /* gapで調整するので0でOK */
   padding: 0;
 }
 
@@ -575,29 +577,23 @@ ul.illust li:before {
   display: none;
 }
 
-/* 3枚並びの右余白 */
+/* 個別のmargin設定はgapに任せるので不要になりますが、念のため上書き */
 ul.illust li:not(:nth-of-type(3n)) {
-  margin-right: 6px;
+  margin-right: 0;
 }
 
 ul.illust li a {
   display: block;
   width: 100%;
   height: auto;
-  -webkit-transition: .3s;
-  transition: .3s;
-}
-
-ul.illust li a:hover {
-  opacity: .7;
 }
 
 ul.illust li a img {
   display: block;
   width: 100%;
-  height: auto;          /* 縦横比を維持 */
-  object-fit: contain;   /* 切り抜かない */
-  vertical-align: bottom;
+  height: auto;
+  object-fit: contain;
+  border-radius: 4px; /* お好みで：角を少し丸くすると隙間が強調されます */
 }
 
 /* ============================================================
