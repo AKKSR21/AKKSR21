@@ -1094,3 +1094,17 @@ nav#globalnav ul li a {
 .footer-news h4#news {
   margin-top: 5px;
 }
+
+
+/* サムネの上の文字 */
+.illust-title {
+  display: block;        /* 文字を1行独立させる */
+  text-align: center;    /* 文字を中央に寄せる */
+  font-size: 14px;       /* 文字の大きさ */
+  margin-bottom: 5px;    /* 画像との間の隙間 */
+  font-weight: bold;     /* 太字（お好みで） */
+  color: #333;           /* 文字の色 */
+  white-space: nowrap;   /* 長い時に改行させない */
+  overflow: hidden;      /* はみ出た文字を隠す */
+  text-overflow: ellipsis; /* はみ出たら「...」にする */
+}
