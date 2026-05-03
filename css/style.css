@@ -654,7 +654,7 @@ ul.sns li a {
 footer {
     background-image: url("../img/footer.jpg"); 
     background-size: cover;                    /* エリア全体*/
-    background-position: center top;           /* 左右中央、上を表示 */
+    background-position: right top;           /* 左右中央、上を表示 */
     background-repeat: no-repeat;              /* 繰り返さない */
     color: #fff;                               /* 文字色が見にくい場合は適宜調整 */
     padding: 30px 0 10px;                      
