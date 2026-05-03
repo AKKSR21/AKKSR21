@@ -941,19 +941,27 @@ a#totop:hover:before {
   nav#globalnav.colorchange ul#navmenu li a:hover {
     color: #9ed200;
   }
-  ul.illust li {
+
+  
+ul.illust li {
     position: relative;
     height: 200px;
-    width: calc(100% / 4 - 4px);
+    /* PCでも3つ並びにする */
+    width: calc(33.3% - 5px);
     margin-bottom: 5px;
     padding: 0;
   }
+
+  /* 3枚並べた時の「1枚目」と「2枚目」の右側にだけスキマ */
   ul.illust li:not(:nth-of-type(3n)) {
-    margin-right: 0;
-  }
-  ul.illust li:not(:nth-of-type(4n)) {
     margin-right: 5px;
   }
+
+  ul.illust li:nth-of-type(4n) {
+    margin-right: 5px;
+  }
+
+  
   .card-wrapper {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
