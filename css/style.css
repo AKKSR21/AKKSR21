@@ -1030,91 +1030,84 @@ nav#globalnav .top-news-box {
   z-index: 10;
 }
 
-/* スクロールバーを消す */
+/* --- ナビゲーション内：更新情報ボックス（DD一本化Ver） --- */
+
+/* 共通：スクロールバーを消す */
 nav#globalnav .top-news-box::-webkit-scrollbar {
   display: none;
 }
-/* ニュースボックス内のリスト調整 */
+
+/* ニュース内の文字・間隔調整 */
 .news-inline {
   margin: 0;
   padding: 0;
   line-height: 32px;
-  white-space: nowrap; /* テキストの意図しない改行を防ぐ */
 }
 
-.news-inline dt,
 .news-inline dd {
-  display: inline-block; /* inlineから変更：幅や余白を制御しやすくする */
-  vertical-align: middle;
+  display: block;      /* 1件ごとに改行 */
+  margin: 0;           /* 余白をリセット（これで隙間が消えます） */
+  padding: 0;
   font-size: 11px;
-  margin: 0;             /* 余白をリセット */
-  padding: 0;            /* パディングをリセット */
+  color: inherit;      /* 親の文字色（白か黒か）を引き継ぐ */
+  white-space: nowrap; /* 日付と内容が途中で改行されるのを防ぐ */
 }
 
-.news-inline dt {
+/* 日付部分のスタイル調整 */
+.news-inline dd span {
   font-weight: bold;
-  margin-right: 4px;     /* 日付と内容の間のスキマをここで直接指定（お好みで調整） */
+  margin-right: 8px;   /* 日付と本文の間のスキマ（お好みで調整） */
 }
 
-.news-inline dd {
-  margin-right: 15px;    /* 1つのニュースが終わった後のスキマ */
-}
+/* --- 配置設定 --- */
 
-/* 2行目以降（複数の更新情報がある場合）の区切りをリセット */
-.news-inline dd::after {
-  content: "";
-  display: block;        /* ここで強制改行させている場合は、1行に収めたいなら inline に変更 */
-  height: 0;
-}
-
-
-/* --- 修正版：ナビゲーション内：更新情報ボックス --- */
-
-/* デフォルト（1500px未満）では非表示にする */
+/* デフォルト（PCサイズ未満）では非表示 */
 nav#globalnav .top-news-box {
   display: none;
 }
 
-/* 1500px以上の時だけ表示して、位置を指定する */
-@media only screen and (min-width: 1500px) {
+/* 768px以上のPC表示での配置（1500px制限を使い勝手の良い768pxに広げました） */
+@media only screen and (min-width: 768px) {
+  nav#globalnav .container {
+    display: flex;
+    align-items: center;
+  }
+
   nav#globalnav .top-news-box {
-    display: block; /* 非表示を解除 */
-    position: fixed;   /* ウィンドウに対して固定 */
-    left: auto;
-    right: 20px;       /* 右端から20px */
-    top: 19px;         /* 上から19px */
+    display: block;
+    margin-left: auto; /* これでロゴ・メニューの右側に配置される */
     width: 220px;
     height: 32px;
     padding: 0 12px;
+    
+    /* 背景のぼかしデザイン */
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 16px;
+    
     overflow-y: scroll;
     scrollbar-width: none;
     z-index: 100;
   }
 }
 
-
-/* SNSアイコンを横並びにする */
+/* --- SNSアイコン設定（ここは変更なし） --- */
 .footer-sns {
-  display: flex;       /* 横並び*/
-  gap: 18px;           /* アイコン同士の間隔 */
-  margin-top: 10px;    /* 見出しとの間隔 */
+  display: flex;
+  gap: 18px;
+  margin-top: 10px;
 }
 
-/* SNSアイコンの大きさを調整 */
 .footer-sns img {
   width: 28px;
   height: auto;
-  object-fit: contain; /* 画像が歪まないようにする */
-  cursor: pointer;     /* 重なった時に指マークにする */
-  transition: opacity 0.3s; /* ホバー時の動きを滑らかに */
+  object-fit: contain;
+  cursor: pointer;
+  transition: opacity 0.3s;
 }
 
-/* マウスを乗せた時に少し薄くする */
 .footer-sns img:hover {
   opacity: 0.7;
 }
