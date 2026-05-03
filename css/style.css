@@ -1034,6 +1034,7 @@ nav#globalnav ul li a {
   overflow-y: scroll;      /* 縦スクロールを表示 */
   /*background: #1a1a1a;     /* ボックスを少し明るい黒にして目立たせる */
   border-radius: 4px;      /* 角を少し丸く */
+  font-size: 13px;
 }
 
 /* スクロールバーの見た目（任意：細くして馴染ませる） */
