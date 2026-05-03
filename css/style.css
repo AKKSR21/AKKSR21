@@ -1096,7 +1096,11 @@ nav#globalnav ul li a {
 }
 
 
-/* GALLERYセクション内の中央寄*/
+/* GALLERYセクションの設定 */
+.gallery-section {
+  padding-bottom: 100px !important; /* 下の余白 */
+}
+
 .gallery-section .container {
   text-align: center;
 }
