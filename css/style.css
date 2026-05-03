@@ -944,15 +944,17 @@ a#totop:hover:before {
   ul.illust li {
     position: relative;
     height: 200px;
-    width: calc(100% / 4 - 4px);
+    width: calc(100% / 3 - 4px);
     margin-bottom: 5px;
     padding: 0;
   }
+/* 3の倍数「以外」に右余白を5px作る*/
   ul.illust li:not(:nth-of-type(3n)) {
-    margin-right: 0;
-  }
-  ul.illust li:not(:nth-of-type(4n)) {
     margin-right: 5px;
+  }
+  /* 4nの設定は3列表示には不要なので削除（または上書き） */
+  ul.illust li:nth-of-type(3n) {
+    margin-right: 0;
   }
   .card-wrapper {
     -webkit-box-orient: horizontal;
