@@ -1034,33 +1034,39 @@ nav#globalnav .top-news-box {
 nav#globalnav .top-news-box::-webkit-scrollbar {
   display: none;
 }
-
-/* テキスト：ナビの色（白/黒）を自動で引き継ぐ */
+/* ニュースボックス内のリスト調整 */
 .news-inline {
   margin: 0;
   padding: 0;
-  line-height: 32px; /* 高さ32pxの中で真ん中に */
+  line-height: 32px;
+  white-space: nowrap; /* テキストの意図しない改行を防ぐ */
 }
 
 .news-inline dt,
 .news-inline dd {
-  display: inline;
+  display: inline-block; /* inlineから変更：幅や余白を制御しやすくする */
+  vertical-align: middle;
   font-size: 11px;
-  color: inherit; /* navの色をそのまま使う */
+  margin: 0;             /* 余白をリセット */
+  padding: 0;            /* パディングをリセット */
 }
 
 .news-inline dt {
   font-weight: bold;
-  margin-right: 5px;
+  margin-right: 4px;     /* 日付と内容の間のスキマをここで直接指定（お好みで調整） */
 }
 
-/* 1行ずつ見せるための区切り */
+.news-inline dd {
+  margin-right: 15px;    /* 1つのニュースが終わった後のスキマ */
+}
+
+/* 2行目以降（複数の更新情報がある場合）の区切りをリセット */
 .news-inline dd::after {
   content: "";
-  display: block;
+  display: block;        /* ここで強制改行させている場合は、1行に収めたいなら inline に変更 */
   height: 0;
-  margin-bottom: 0;
 }
+
 
 /* --- 修正版：ナビゲーション内：更新情報ボックス --- */
 
