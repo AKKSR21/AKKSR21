@@ -2,6 +2,7 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;500&family=Kiwi+Maru&family=Kosugi&family=Zen+Kurenaido&family=Zen+Maru+Gothic&display=swap");
 
+/* --- リセット・基本設定 --- */
 input[type="submit"] {
   -webkit-appearance: none;
   border-radius: 0;
@@ -12,9 +13,7 @@ html {
   -ms-overflow-style: scrollbar;
 }
 
-*,
-*::after,
-*::before {
+*, *::after, *::before {
   box-sizing: border-box;
 }
 
@@ -26,22 +25,23 @@ img {
 
 a {
   text-decoration: none;
+  color: #9ed200;
+  transition: color .3s;
 }
 
-ol,
-ul {
+a:hover {
+  color: #409c10;
+}
+
+ol, ul {
   padding: 0;
+  list-style: none;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-img,
-p {
+h1, h2, h3, h4, h5, p {
   margin: 0;
   padding: 0;
+  line-height: 1.6em;
 }
 
 hr {
@@ -50,53 +50,6 @@ hr {
   background: #f1eded;
   margin: 2em auto;
   width: 100%;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-p {
-  line-height: 1.6em;
-}
-
-/* 基本のコンテナ設定（メインコンテンツ用） */
-.container {
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.flex {
-  display: -webkit-box;
-  display: flex;
-}
-
-.wrap {
-  flex-wrap: wrap;
-  flex-direction: column;
-}
-
-@media (min-width: 768px) {
-  .wrap {
-    flex-direction: row;
-  }
-}
-
-/* メインコンテンツの幅制限 */
-@media (min-width: 768px) and (max-width: 1029px) {
-  .container {
-    max-width: 720px;
-  }
-}
-
-@media (min-width: 1030px) {
-  .container {
-    max-width: 960px;
-  }
 }
 
 body {
@@ -109,63 +62,34 @@ body {
   font-family: YuGothic, 'Yu Gothic', 'ヒラギノ角ゴシック', 'Hiragino Sans', sans-serif;
 }
 
+/* --- コンテナ・レイアウト --- */
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 768px) {
+  .container { max-width: 720px; }
+}
+
+@media (min-width: 1030px) {
+  .container { max-width: 960px; }
+}
+
 section {
   padding: 30px 0;
 }
 
-/* リスト・装飾 */
-ul.list {
-  list-style: none;
-  margin: 1.5em 0;
-}
-
-ul.list li {
-  position: relative;
-  margin-left: 25px;
-  margin-bottom: 5px;
-}
-
-ul.list li:before {
-  content: '';
-  display: block;
-  width: 8px;
-  height: 8px;
-  background: #9ed200;
-  position: absolute;
-  margin: auto;
-  top: 9px;
-  left: -20px;
-}
-
-h1, h2, h3, h4, h5 {
-  font-family: "Kiwi Maru", "Zen Maru Gothic", "Zen Kurenaido", serif;
-}
-
-h2 {
-  text-align: center;
-}
-
-h3 {
-  border-left: 3px solid #9ed200;
-  padding: 0px 15px;
-  margin: 2em 0 1em;
-}
-
-a {
-  color: #9ed200;
-  transition: color .3s;
-}
-
-a:hover {
-  color: #409c10;
-}
-
-/* --- ナビゲーション（基本・スマホ版） --- */
+/* --- ナビゲーション（共通） --- */
 nav#globalnav {
   position: fixed;
   z-index: 99;
   top: 0;
   width: 100%;
+  transition: background 0.5s;
 }
 
 nav#globalnav .globalnav_bg {
@@ -174,20 +98,33 @@ nav#globalnav .globalnav_bg {
   position: absolute;
   top: 0;
   z-index: -1;
-  opacity: 1;
-  background: linear-gradient(0deg, rgba(230, 230, 230, 0) 5%, rgba(255, 255, 255, 0.9) 51%);
+  background: rgba(255, 255, 255, 0.9);
 }
 
-nav#globalnav h1 a {
+/* 透明化状態 */
+nav#globalnav.colorchange {
+  background: transparent;
+}
+
+nav#globalnav.colorchange .globalnav_bg {
+  opacity: 0;
+}
+
+/* --- ナビ（スマホ版） --- */
+nav#globalnav h1.logo a {
   color: #000000;
   display: block;
   padding: 18px 15px;
-  font-size: 40px;
+  font-size: 30px;
+  font-family: "Kiwi Maru", serif;
 }
 
-/* スマホ用メニュー（右から出てくるやつ） */
+nav#globalnav.colorchange h1.logo a {
+  color: #ffffff;
+  filter: drop-shadow(0px 0px 3px #00000066);
+}
+
 nav#globalnav ul#navmenu {
-  list-style: none;
   position: fixed;
   background: #ffffff;
   width: 60vw;
@@ -197,7 +134,7 @@ nav#globalnav ul#navmenu {
   right: -100%;
   margin: 0;
   padding: 60px 20px 20px;
-  overflow-y: scroll;
+  overflow-y: auto;
   box-shadow: 0 0 6px #00000040;
   transition: right .5s;
   display: flex;
@@ -209,31 +146,17 @@ nav#globalnav ul#navmenu.checked {
 }
 
 nav#globalnav ul#navmenu li a {
-  font-family: "Kiwi Maru", "Zen Maru Gothic", "Zen Kurenaido", serif;
+  font-family: "Kiwi Maru", serif;
   display: block;
   color: #000000;
   padding: 15px 0;
 }
 
-/* 背景透過設定 */
-nav#globalnav.colorchange {
-  background: transparent;
-}
-
-nav#globalnav.colorchange .globalnav_bg {
-  opacity: 0;
-}
-
-nav#globalnav.colorchange h1 a {
-  color: #ffffff;
-  filter: drop-shadow(0px 0px 3px #00000066);
-}
-
-/* スマホ用ハンバーガーボタン */
 p#menubtn {
   display: block;
   width: 50px;
   height: 50px;
+  line-height: 50px;
   text-align: center;
   font-size: 30px;
   position: fixed;
@@ -242,53 +165,42 @@ p#menubtn {
   right: 20px;
   z-index: 100;
   cursor: pointer;
+  margin: 0;
 }
 
 nav#globalnav.colorchange p#menubtn {
   color: #ffffff;
 }
 
-/* --- ヘッダー・メイン画像 --- */
-header {
-  background-color: #000000;
-  height: 400px;
+.top-news-box {
+  display: none; /* スマホでは非表示 */
 }
 
-header img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-header img.top-pc { display: none; }
-
-/* --- PC版レイアウト（768px以上） --- */
+/* --- ナビ（PC版 768px以上） --- */
 @media only screen and (min-width: 768px) {
-  
-  header img.top-pc { display: block; }
-  header img.top-phone { display: none; }
-  p#menubtn { display: none; }
-
-  /* ★GPT指摘：nav-flex を横並び＆画面いっぱいに広げる設定 */
   nav#globalnav .nav-flex {
     display: flex;
     align-items: center;
-    max-width: 100% !important; /* 960pxの制限を突破 */
+    justify-content: space-between;
     width: 100%;
-    padding: 0 40px;
+    padding: 0 30px;
     height: 70px;
   }
 
-  nav#globalnav h1.logo {
-    flex-shrink: 0; /* ロゴが潰れないように */
+  .nav-center-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* ロゴ左・メニュー右 */
+    width: 100%;
+    max-width: 960px; /* メインコンテンツの幅に合わせる */
+    margin: 0 auto;
   }
 
   nav#globalnav h1.logo a {
-    font-size: 35px;
     padding: 0;
+    font-size: 35px;
   }
 
-  /* ★メニューを中央に配置 */
   nav#globalnav ul#navmenu {
     position: relative;
     background: transparent;
@@ -299,17 +211,13 @@ header img.top-pc { display: none; }
     box-shadow: none;
     transition: none;
     flex-direction: row;
-    flex: 1;                /* ロゴとニュースの間のスペースをすべて使う */
-    justify-content: center; /* その中央に寄せる */
-    margin: 0;
     overflow: visible;
   }
 
   nav#globalnav ul#navmenu li a {
     padding: 0 20px;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: bold;
-    margin: 0;
     color: #000000;
   }
 
@@ -318,111 +226,90 @@ header img.top-pc { display: none; }
     filter: drop-shadow(0px 0px 3px #00000066);
   }
 
-  /* ★ニュースボックス（右端） */
+  /* 更新情報ボックスを右端に配置 */
   nav#globalnav .top-news-box {
     display: block;
     flex-shrink: 0;
-    width: 280px;
-    height: 34px;
+    width: 250px;
+    height: 32px;
+    margin-left: 20px;
     padding: 0 15px;
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 17px;
-    overflow-y: scroll;
-    scrollbar-width: none;
-    z-index: 100;
+    overflow: hidden;
   }
 
-  /* 狭いPC画面用の微調整 */
-  @media (max-width: 1100px) {
-    nav#globalnav ul#navmenu li a { font-size: 15px; padding: 0 10px; }
-    nav#globalnav h1.logo a { font-size: 28px; }
-    nav#globalnav .top-news-box { width: 220px; }
-  }
+  p#menubtn { display: none; }
 }
 
-/* --- ニュース内部テキスト設定 --- */
-nav#globalnav .top-news-box::-webkit-scrollbar { display: none; }
-
-.news-inline { margin: 0; padding: 0; }
+/* --- ニュース内テキスト --- */
 .news-inline dd {
-  line-height: 32px;
+  line-height: 30px;
   margin: 0;
-  font-size: 12px;
+  font-size: 11px;
   white-space: nowrap;
   color: inherit;
 }
 .news-inline dd span { font-weight: bold; margin-right: 8px; }
 
-/* --- 展示物（GALLERY）の設定 --- */
+/* --- ヘッダー --- */
+header {
+  background-color: #000000;
+  height: 400px;
+}
+header img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+header img.top-pc { display: none; }
+@media (min-width: 768px) {
+  header img.top-pc { display: block; }
+  header img.top-phone { display: none; }
+}
+
+/* --- 見出し・装飾 --- */
+h1, h2, h3, h4, h5 {
+  font-family: "Kiwi Maru", "Zen Maru Gothic", serif;
+}
+h2 { text-align: center; margin-bottom: 30px; }
+h3 { border-left: 3px solid #9ed200; padding: 0 15px; margin: 2em 0 1em; }
+h4 { margin-top: 1.5em; color: #666; }
+
+/* --- 展示物ギャラリー --- */
 ul.illust {
   display: flex;
   flex-wrap: wrap;
+  gap: 5px;
   margin: 30px auto;
-  list-style: none;
 }
-
 ul.illust li {
-  height: 120px;
-  width: calc(100% / 3 - 5px);
-  margin-bottom: 5px;
+  height: 150px;
+  flex: 1 1 calc(33.333% - 5px);
 }
-
 @media (min-width: 768px) {
-  ul.illust li {
-    height: 200px;
-    width: calc(33.3% - 5px);
-  }
+  ul.illust li { height: 200px; }
 }
-
-ul.illust li:not(:nth-of-type(3n)) { margin-right: 5px; }
-
-ul.illust li a img {
+ul.illust li img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  transition: opacity 0.3s;
+  object-fit: cover;
 }
 
-ul.illust li a img:hover { opacity: .7; }
-
-/* --- ABOUTセクション中央寄せ --- */
-.about-section .container {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.about-section p, .about-section h4 {
-  text-align: center;
-  width: 100%;
-}
-
-/* --- フッター・SNS --- */
+/* --- フッター --- */
 footer {
   background: #000000;
   color: #ffffff;
-  padding: 40px 0 20px;
+  padding: 60px 0 40px;
+  margin-top: 50px;
 }
+.footer-sns { display: flex; gap: 15px; margin-top: 15px; }
+.footer-sns img { width: 30px; }
 
-.footer-sns {
-  display: flex;
-  gap: 18px;
-  margin-top: 10px;
-}
-
-.footer-sns img {
-  width: 28px;
-  height: auto;
-  transition: opacity 0.3s;
-}
-
-.footer-sns img:hover { opacity: 0.7; }
-
-/* トップへ戻るボタン */
+/* トップへ戻る */
 a#totop {
   display: block;
   position: fixed;
@@ -431,5 +318,6 @@ a#totop {
   width: 50px;
   height: 50px;
   background: #9ed200;
-  z-index: 9;
+  border-radius: 50%;
+  z-index: 10;
 }
