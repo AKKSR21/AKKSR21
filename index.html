@@ -4,7 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>のばなし園</title>
-  <script src="js/jquery.js"></script>
+  <!-- jQuery読み込み -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/lightbox.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
@@ -16,19 +17,20 @@
 <nav id="globalnav" class="colorchange">
   <div class="globalnav_bg"></div>
   
-  <!-- ここに nav-flex という枠を追加しました -->
-  <div class="container nav-flex"> 
+  <div class="nav-flex">
     
-    <h1 class="logo"><a href="#">のばなし園</a></h1>
-    
-    <p id="menubtn">&#9776;</p>
+    <!-- 中央グループ（ロゴとメニュー） -->
+    <div class="nav-center-group">
+      <h1 class="logo"><a href="#">のばなし園</a></h1>
+      
+      <ul id="navmenu">
+        <li><a href="index.html#about">ご案内</a></li>
+        <li><a href="index.html#gallery">展示物</a></li>
+        <li><a href="index.html#contact">お問合せ先</a></li>
+      </ul>
+    </div>
 
-    <ul id="navmenu">
-      <li><a href="index.html#about">ご案内</a></li>
-      <li><a href="index.html#gallery">展示物</a></li>
-      <li><a href="index.html#contact">お問合せ先</a></li>
-    </ul>
-
+    <!-- 更新情報（画面右端） -->
     <div class="top-news-box">
       <dl class="news-inline">
         <dd><span>2026.06.20</span>ウェブサイト開設。</dd>
@@ -36,12 +38,15 @@
       </dl>
     </div>
 
+    <!-- スマホ用メニューボタン -->
+    <p id="menubtn">&#9776;</p>
+
   </div>
 </nav>
 
 <header id="eyecatch"> 
-  <img src="img/top.jpg" alt="TEMPLATE" class="top-pc">
-  <img src="img/top.jpg" alt="TEMPLATE" class="top-phone">
+  <img src="img/top.jpg" alt="TOP IMAGE" class="top-pc">
+  <img src="img/top.jpg" alt="TOP IMAGE" class="top-phone">
 </header>
 
 <main>
@@ -50,23 +55,25 @@
       <h2 id="about">ご 案 内</h2>
       <h4>このウェブサイトについて</h4>
       <p>当サイトは個人による非公式のファンサイトです。<br>掲載されている画像・文章はすべて個人の趣味で作成されたものであり、公式作品および関係者様とは一切関係ありません。<br>
-       This is an unofficial fan site.<br> All images and text on this site are created as a personal hobby and are not affiliated with, endorsed by, or associated with the original creators or any official entities.</p>
+         This is an unofficial fan site.<br> All images and text on this site are created as a personal hobby and are not affiliated with, endorsed by, or associated with the original creators or any official entities.</p>
       <h4>禁止事項</h4>
       <p>サイト内に掲載された画像・文章の無断転載・無断利用、及びAI学習使用を禁止します。<br>
-        Unauthorized reproduction, redistribution, or use of any content on this site, including use for AI training, is strictly prohibited.</p>
+         Unauthorized reproduction, redistribution, or use of any content on this site, including use for AI training, is strictly prohibited.</p>
     </div>
   </section>
 
   <section>
     <div class="container">
       <h2 id="gallery">展 示 物</h2>
+      <!-- イラストギャラリー -->
       <ul class="illust">
-        <li><a href="img/01.jpg" data-lightbox="illust" data-title="ここに説明"><img src="img/01-s.jpg"></a></li>
+        <li><a href="img/01.jpg" data-lightbox="illust" data-title="作品タイトル"><img src="img/01-s.jpg" alt=""></a></li>
       </ul>
+      <!-- 漫画ギャラリー -->
       <ul class="illust">
-        <li><a href="/nobanashi/manga/sample/" rel="noopener noreferrer"><img src="img/s_manga_sample.jpg"></a></li>
-        <li><a href="/nobanashi/manga/michi/" rel="noopener noreferrer"><img src="img/s_manga_michi.jpg"></a></li>
-        <li><a href="/nobanashi/manga/benkyo/" rel="noopener noreferrer"><img src="img/s_manga_benkyo.jpg"></a></li>
+        <li><a href="/nobanashi/manga/sample/" rel="noopener noreferrer"><img src="img/s_manga_sample.jpg" alt=""></a></li>
+        <li><a href="/nobanashi/manga/michi/" rel="noopener noreferrer"><img src="img/s_manga_michi.jpg" alt=""></a></li>
+        <li><a href="/nobanashi/manga/benkyo/" rel="noopener noreferrer"><img src="img/s_manga_benkyo.jpg" alt=""></a></li>
       </ul>
     </div>
   </section>
@@ -75,29 +82,53 @@
 <a href="#" id="totop"></a>
 
 <footer>
-<div class="container">
-  <div class="wrap-3col">
-    <div class="inner">
-      <h1 id="contact">のばなし園</h1>
-      <p class="memo">https://aknbns.github.io/nobanashi/<br>
-      管理者名 あこう<br>
-      メールアドレス </p>
-      <p class="memo">リンクフリー・etc...<br>
-      サイトについての情報を書いてもいい感じ<br></p>
-    </div>
-    <div class="inner">
-      <h4>SNS</h4>
-      <div class="footer-sns">
-        <a href="https://x.com/AKOUverF" target="_blank" rel="noopener noreferrer"><img src="img/logo_twitter.png" alt="Twitter"></a>
-        <a href="https://bsky.app/profile/akou-ver-f.bsky.social" target="_blank" rel="noopener noreferrer"><img src="img/logo_bluesky.png" alt="Bluesky"></a>
-        <a href="https://www.pixiv.net/users/133677" target="_blank" rel="noopener noreferrer"><img src="img/logo_pixiv.png" alt="pixiv"></a>
+  <div class="container">
+    <div class="wrap-3col" style="display: flex; gap: 40px; flex-wrap: wrap;">
+      <div class="inner">
+        <h1 id="contact">のばなし園</h1>
+        <p class="memo">https://aknbns.github.io/nobanashi/<br>
+        管理者名 あこう<br>
+        メールアドレス </p>
+        <p class="memo">リンクフリー・etc...<br>
+        サイトについての情報を書いてもいい感じ<br></p>
+      </div>
+      <div class="inner">
+        <h4>SNS</h4>
+        <div class="footer-sns">
+          <a href="https://x.com/AKOUverF" target="_blank" rel="noopener noreferrer"><img src="img/logo_twitter.png" alt="Twitter"></a>
+          <a href="https://bsky.app/profile/akou-ver-f.bsky.social" target="_blank" rel="noopener noreferrer"><img src="img/logo_bluesky.png" alt="Bluesky"></a>
+          <a href="https://www.pixiv.net/users/133677" target="_blank" rel="noopener noreferrer"><img src="img/logo_pixiv.png" alt="pixiv"></a>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </footer>
 
-<script src="js/common.js"></script>
 <script src="js/lightbox.js"></script>
+
+<!-- スクロール・メニュー制御スクリプト -->
+<script>
+$(function() {
+  // スクロールでナビの色を変更
+  $(window).on("scroll", function() {
+    if ($(this).scrollTop() > 100) {
+      $("#globalnav").removeClass("colorchange");
+    } else {
+      $("#globalnav").addClass("colorchange");
+    }
+  });
+
+  // スマホメニュー開閉
+  $("#menubtn").on("click", function() {
+    $("#navmenu").toggleClass("checked");
+  });
+
+  // リンククリックでメニューを閉じる
+  $("#navmenu a").on("click", function() {
+    $("#navmenu").removeClass("checked");
+  });
+});
+</script>
+
 </body>
 </html>
