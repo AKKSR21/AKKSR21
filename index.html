@@ -4,7 +4,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>のばなし園</title>
-  <!-- jQuery読み込み -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/lightbox.css">
@@ -17,36 +16,30 @@
 <nav id="globalnav" class="colorchange">
   <div class="globalnav_bg"></div>
   
-  <div class="nav-flex">
+  <div class="container">
+    <h1 class="logo"><a href="#">のばなし園</a></h1>
     
-    <!-- 中央グループ（ロゴとメニュー） -->
-    <div class="nav-center-group">
-      <h1 class="logo"><a href="#">のばなし園</a></h1>
-      
-      <ul id="navmenu">
-        <li><a href="index.html#about">ご案内</a></li>
-        <li><a href="index.html#gallery">展示物</a></li>
-        <li><a href="index.html#contact">お問合せ先</a></li>
-      </ul>
-    </div>
+    <p id="menubtn">&#9776;</p>
 
-    <!-- 更新情報（画面右端） -->
+    <ul id="navmenu">
+      <li><a href="index.html#about">ご案内</a></li>
+      <li><a href="index.html#gallery">展示物</a></li>
+      <li><a href="index.html#contact">お問合せ先</a></li>
+    </ul>
+
+    <!-- 更新情報ボックス（1500px以上で右端に表示される設定） -->
     <div class="top-news-box">
       <dl class="news-inline">
         <dd><span>2026.06.20</span>ウェブサイト開設。</dd>
-        <dd><span>2026.06.20</span>2行目のテスト。</dd>
+        <dd><span>2026.06.20</span>のばなし園へようこそ！</dd>
       </dl>
     </div>
-
-    <!-- スマホ用メニューボタン -->
-    <p id="menubtn">&#9776;</p>
-
   </div>
 </nav>
 
 <header id="eyecatch"> 
-  <img src="img/top.jpg" alt="TOP IMAGE" class="top-pc">
-  <img src="img/top.jpg" alt="TOP IMAGE" class="top-phone">
+  <img src="img/top.jpg" alt="TOP" class="top-pc">
+  <img src="img/top.jpg" alt="TOP" class="top-phone">
 </header>
 
 <main>
@@ -65,15 +58,15 @@
   <section>
     <div class="container">
       <h2 id="gallery">展 示 物</h2>
-      <!-- イラストギャラリー -->
+      <!-- イラスト（Lightbox用） -->
       <ul class="illust">
-        <li><a href="img/01.jpg" data-lightbox="illust" data-title="作品タイトル"><img src="img/01-s.jpg" alt=""></a></li>
+        <li><a href="img/01.jpg" data-lightbox="illust" data-title="作品タイトル"><img src="img/01-s.jpg"></a></li>
       </ul>
-      <!-- 漫画ギャラリー -->
+      <!-- 漫画（サムネ表示維持） -->
       <ul class="illust">
-        <li><a href="/nobanashi/manga/sample/" rel="noopener noreferrer"><img src="img/s_manga_sample.jpg" alt=""></a></li>
-        <li><a href="/nobanashi/manga/michi/" rel="noopener noreferrer"><img src="img/s_manga_michi.jpg" alt=""></a></li>
-        <li><a href="/nobanashi/manga/benkyo/" rel="noopener noreferrer"><img src="img/s_manga_benkyo.jpg" alt=""></a></li>
+        <li><a href="/nobanashi/manga/sample/"><img src="img/s_manga_sample.jpg"></a></li>
+        <li><a href="/nobanashi/manga/michi/"><img src="img/s_manga_michi.jpg"></a></li>
+        <li><a href="/nobanashi/manga/benkyo/"><img src="img/s_manga_benkyo.jpg"></a></li>
       </ul>
     </div>
   </section>
@@ -87,10 +80,9 @@
       <div class="inner">
         <h1 id="contact">のばなし園</h1>
         <p class="memo">https://aknbns.github.io/nobanashi/<br>
-        管理者名 あこう<br>
-        メールアドレス </p>
+        管理者名 あこう</p>
         <p class="memo">リンクフリー・etc...<br>
-        サイトについての情報を書いてもいい感じ<br></p>
+        サイトについての情報を書いてもいい感じ</p>
       </div>
       <div class="inner">
         <h4>SNS</h4>
@@ -105,11 +97,8 @@
 </footer>
 
 <script src="js/lightbox.js"></script>
-
-<!-- スクロール・メニュー制御スクリプト -->
 <script>
 $(function() {
-  // スクロールでナビの色を変更
   $(window).on("scroll", function() {
     if ($(this).scrollTop() > 100) {
       $("#globalnav").removeClass("colorchange");
@@ -117,18 +106,10 @@ $(function() {
       $("#globalnav").addClass("colorchange");
     }
   });
-
-  // スマホメニュー開閉
   $("#menubtn").on("click", function() {
     $("#navmenu").toggleClass("checked");
   });
-
-  // リンククリックでメニューを閉じる
-  $("#navmenu a").on("click", function() {
-    $("#navmenu").removeClass("checked");
-  });
 });
 </script>
-
 </body>
 </html>
