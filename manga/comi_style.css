@@ -1,5 +1,28 @@
 @charset "utf-8";
 
+@font-face {
+    font-family: 'g_icon';
+    src:  url('images/fonts/g_icon.ttf') format('truetype'),
+        url('images/fonts/g_icon.woff') format('woff'),
+        url('images/fonts/g_icon.svg#g_icon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"], .slide-arrow span, .menu_button, .guide::after, .help::after, .guide_yazirusi .icon {
+    font-family: 'g_icon' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
 html {
     /*ブラウザ機能によるダブルタップズームを抑止*/
     -ms-touch-action: manipulation;
