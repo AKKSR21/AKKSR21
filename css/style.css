@@ -1106,7 +1106,7 @@ nav#globalnav ul li a {
 
 /* GALLERYセクションの設定 */
 .gallery-section {
-  padding-bottom: 200px !important; /* 下の余白 */
+  padding-bottom: 250px !important; /* 下の余白 */
 }
 
 .gallery-section .container {
