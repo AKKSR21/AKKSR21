@@ -1042,13 +1042,13 @@ nav#globalnav ul li a {
   width: 5px;
 }
 .news-list::-webkit-scrollbar-thumb {
-  background: #9ed200;
+  background: #ffffff;
   border-radius: 5px;
 }
 
 .news-list dt {
-  font-size: 14px;
-  color: #9ed200;
+  font-size: 13px;
+  color: #ffffff;
   margin: 0;
   line-height: 2.4em;      /* 高さにあわせて調整 */
 }
