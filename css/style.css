@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;500&family=Kiwi+Maru&family=Kosugi&family=Zen+Kurenaido&family=Zen+Maru+Gothic&display=swap");
+
 input[type="submit"] {
   -webkit-appearance: none;
   border-radius: 0;
@@ -77,14 +78,14 @@ p {
   flex-wrap: wrap;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-          flex-direction: column;
+  flex-direction: column;
 }
 
 @media (min-width: 768px) {
   .wrap {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-            flex-direction: row;
+    flex-direction: row;
   }
 }
 
@@ -107,7 +108,7 @@ body {
   margin: 0;
   padding: 0;
   font-size: 16px;
-  font-family: YuGothic,'Yu Gothic','ヒラギノ角ゴシック','Hiragino Sans',sans-serif;
+  font-family: YuGothic, 'Yu Gothic', 'ヒラギノ角ゴシック', 'Hiragino Sans', sans-serif;
 }
 
 section {
@@ -163,7 +164,6 @@ ol.list li:before {
   counter-increment: number;
   content: counter(number);
   font-family: "Kiwi Maru", "Zen Maru Gothic", "Zen Kurenaido", serif;
-  position: absolute;
   margin: auto;
   top: 6px;
   left: -25px;
@@ -198,7 +198,7 @@ dl.list dd {
   margin: 10px 0 1em 1em;
 }
 
-dl.list dd > *:first-of-type {
+dl.list dd>*:first-of-type {
   margin-top: 0;
 }
 
@@ -219,12 +219,12 @@ strong.marker {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-          flex-direction: column;
+  flex-direction: column;
 }
 
 .wrap .inner {
   -webkit-box-flex: 1;
-          flex: 1;
+  flex: 1;
   margin-bottom: 30px;
 }
 
@@ -233,12 +233,12 @@ strong.marker {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-          flex-direction: column;
+  flex-direction: column;
 }
 
 .wrap-3col .inner {
   -webkit-box-flex: 1;
-          flex: 1;
+  flex: 1;
   margin-bottom: 30px;
 }
 
@@ -280,20 +280,23 @@ blockquote {
   border-left: 3px solid #ada5a5;
 }
 
-blockquote > *:first-of-type {
+blockquote>*:first-of-type {
   margin-top: 0;
 }
 
-blockquote > *:last-of-type {
+blockquote>*:last-of-type {
   margin-bottom: 0;
 }
 
-table, td, th {
+table,
+td,
+th {
   border: 1px solid #dcdcdc;
   border-collapse: collapse;
 }
 
-td, th {
+td,
+th {
   padding: 5px 10px;
 }
 
@@ -311,11 +314,11 @@ table.center {
   padding: 15px;
 }
 
-.box > *:first-of-type {
+.box>*:first-of-type {
   margin-top: 0;
 }
 
-.box > *:last-of-type {
+.box>*:last-of-type {
   margin-bottom: 0;
 }
 
@@ -326,7 +329,9 @@ a {
   transition: color .3s;
 }
 
-a:focus, a:visited, a:active {
+a:focus,
+a:visited,
+a:active {
   color: #9ed200;
 }
 
@@ -368,7 +373,7 @@ dl.news {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-          flex-direction: column;
+  flex-direction: column;
   border-bottom: 1px dotted #b8b8b8;
 }
 
@@ -386,7 +391,6 @@ dl.news dd {
 nav#globalnav {
   position: fixed;
   z-index: 9;
-  position: fixed;
   top: 0;
   width: 100%;
 }
@@ -424,7 +428,7 @@ nav#globalnav ul {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-          flex-direction: column;
+  flex-direction: column;
 }
 
 nav#globalnav ul li a {
@@ -475,7 +479,7 @@ nav#globalnav.colorchange .globalnav_bg {
 nav#globalnav.colorchange h1 a {
   color: #ffffff;
   -webkit-filter: drop-shadow(0px 0px 3px #00000066);
-          filter: drop-shadow(0px 0px 3px #00000066);
+  filter: drop-shadow(0px 0px 3px #00000066);
 }
 
 nav#globalnav.colorchange h1 a:hover {
@@ -488,14 +492,14 @@ nav#globalnav.colorchange p#menubtn {
 
 header {
   background-color: #000000;
-  height: 400px; /* 表示領域制限 */
+  height: 400px;
 }
 
 header img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 header img.top-pc {
@@ -510,7 +514,7 @@ input[type=checkbox]#menubtncheck {
   display: none;
 }
 
-input[type=checkbox]#menubtncheck:checked + nav#globalnav {
+input[type=checkbox]#menubtncheck:checked+nav#globalnav {
   opacity: 1;
   z-index: 9;
 }
@@ -547,6 +551,9 @@ p#menubtn#inmenu-back {
   z-index: -1;
 }
 
+/* ============================================================
+   イラストギャラリー設定（スマホ＆PC共通ベース）
+   ============================================================ */
 ul.illust {
   display: -webkit-box;
   display: flex;
@@ -557,9 +564,10 @@ ul.illust {
 
 ul.illust li {
   position: relative;
-  height: 120px;
-  width: calc(100% / 3 - 4px);
-  margin-bottom: 5px;
+  display: block;        /* 縦重なり防止の決め手 */
+  height: auto;
+  width: calc(100% / 3 - 6px); /* 3列計算（隙間多め） */
+  margin-bottom: 20px;   /* 縦の隙間を確保 */
   padding: 0;
 }
 
@@ -567,14 +575,15 @@ ul.illust li:before {
   display: none;
 }
 
+/* 3枚並びの右余白 */
 ul.illust li:not(:nth-of-type(3n)) {
-  margin-right: 5px;
+  margin-right: 6px;
 }
 
 ul.illust li a {
   display: block;
   width: 100%;
-  height: 100%;
+  height: auto;
   -webkit-transition: .3s;
   transition: .3s;
 }
@@ -586,16 +595,20 @@ ul.illust li a:hover {
 ul.illust li a img {
   display: block;
   width: 100%;
-  height: auto;    /*画像の比率を維持*/
-  object-fit: contain; /*枠内に収める */
+  height: auto;          /* 縦横比を維持 */
+  object-fit: contain;   /* 切り抜かない */
+  vertical-align: bottom;
 }
 
+/* ============================================================
+   プロフィール・その他
+   ============================================================ */
 .card-wrapper {
   display: -webkit-box;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-          flex-direction: column;
+  flex-direction: column;
 }
 
 .card-wrapper .card {
@@ -613,7 +626,7 @@ ul.illust li a img {
   width: 200px;
   height: 200px;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   border-radius: 50%;
   margin: 20px auto 10px;
 }
@@ -684,7 +697,6 @@ form.mailform textarea {
   margin: 0 0 15px;
   font-size: 14px;
   line-height: 1.6em;
-  border: none;
   padding: 10px;
   width: 100%;
   height: 200px;
@@ -705,7 +717,6 @@ form.mailform textarea:focus {
 form.mailform input {
   margin: 0 0 15px;
   font-size: 16px;
-  border: none;
   padding: 10px;
   width: 100%;
   border-radius: 5px;
@@ -730,7 +741,8 @@ form.mailform input[type="submit"] {
   border: none;
 }
 
-form.mailform input[type="submit"]:focus, form.mailform input[type="submit"]:hover {
+form.mailform input[type="submit"]:focus,
+form.mailform input[type="submit"]:hover {
   background: #f1fc40;
   cursor: pointer;
 }
@@ -754,7 +766,7 @@ a#totop:before {
   border-top: 2px solid black;
   border-right: 2px solid black;
   -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+  transform: rotate(-45deg);
   margin: auto;
   position: absolute;
   right: 0;
@@ -767,103 +779,112 @@ a#totop:before {
 
 a#totop:hover:before {
   -webkit-transform: translateY(-3px) rotate(-45deg);
-          transform: translateY(-3px) rotate(-45deg);
+  transform: translateY(-3px) rotate(-45deg);
 }
 
+/* ============================================================
+   PC版レスポンシブ（768px以上）
+   ============================================================ */
 @media only screen and (min-width: 768px) {
   .wrap {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-            flex-direction: row;
+    flex-direction: row;
     -webkit-box-pack: justify;
-            justify-content: space-between;
+    justify-content: space-between;
   }
- 
+
   .wrap .inner {
     width: 46%;
     -webkit-box-flex: 0;
-            flex: none;
+    flex: none;
   }
+
   .wrap-3col {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-            flex-direction: row;
+    flex-direction: row;
     -webkit-box-pack: justify;
-            justify-content: space-between;
+    justify-content: space-between;
   }
+
   .wrap-3col .inner {
     width: 31%;
     -webkit-box-flex: 0;
-            flex: none;
+    flex: none;
   }
+
   section {
     padding: 80px 0;
   }
+
   h2 {
     font-size: 35px;
   }
 
-  /* 見出し下の棒線消しちゃう----
-  h2:after {
-    content: '';
-    display: block;
-    width: 62px;
-    height: 4px;
-    background: black;
-    margin: 10px auto 40px;
-  }
-  -------*/
-  
   h3 {
     font-size: 24px;
   }
+
   h4 {
     font-size: 20px;
   }
+
   dl.news {
     max-width: 700px;
     margin: auto;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-            flex-direction: row;
+    flex-direction: row;
   }
-  dl.news dd, dl.news dt {
+
+  dl.news dd,
+  dl.news dt {
     padding: 10px;
     line-height: 1.6;
   }
+
   p#menubtn {
     display: none;
   }
+
   header img.top-pc {
     display: block;
   }
+
   header img.top-phone {
     display: none;
   }
+
   nav#globalnav {
     position: fixed;
     top: 0;
     z-index: 9;
   }
+
   nav#globalnav h1 a {
     font-size: 35px;
   }
-  nav#globalnav > .container {
+
+  nav#globalnav>.container {
     display: -webkit-box;
     display: flex;
     -webkit-box-pack: justify;
-            justify-content: space-between;
+    justify-content: space-between;
   }
+
   nav#globalnav ul {
     display: -webkit-box;
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-            flex-direction: column;
+    flex-direction: column;
   }
+
   nav#globalnav ul li a {
     text-decoration: none;
   }
+
   nav#globalnav ul#navmenu {
     position: relative;
     background: transparent;
@@ -880,16 +901,17 @@ a#totop:hover:before {
     transition: none;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-            flex-direction: row;
+    flex-direction: row;
   }
+
   nav#globalnav ul#navmenu ul {
     list-style: none;
     background: #000000;
     opacity: 0;
     -webkit-transform: translateY(-5px);
-            transform: translateY(-5px);
+    transform: translateY(-5px);
     -webkit-transform-origin: top center;
-            transform-origin: top center;
+    transform-origin: top center;
     -webkit-transition: all .3s;
     transition: all .3s;
     height: 0;
@@ -897,6 +919,7 @@ a#totop:hover:before {
     position: absolute;
     pointer-events: none;
   }
+
   nav#globalnav ul#navmenu ul li a {
     padding: 10px 20px;
     text-align: left;
@@ -906,19 +929,22 @@ a#totop:hover:before {
     margin: 0;
     font-size: 16px;
   }
+
   nav#globalnav ul#navmenu li:hover ul {
     opacity: 1;
     z-index: 10;
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
     -webkit-transition: all .3s;
     transition: all .3s;
     height: auto;
     pointer-events: all;
   }
+
   nav#globalnav ul#navmenu li:hover ul li a {
     height: auto;
   }
+
   nav#globalnav ul#navmenu li a {
     display: block;
     font-weight: bold;
@@ -929,40 +955,44 @@ a#totop:hover:before {
     margin: auto;
     font-size: 20px;
   }
+
   nav#globalnav ul#navmenu li a:hover {
     color: #9ed200;
   }
+
   nav#globalnav.colorchange ul#navmenu li a {
     color: #ffffff;
     -webkit-filter: drop-shadow(0px 0px 3px #00000066);
-            filter: drop-shadow(0px 0px 3px #00000066);
+    filter: drop-shadow(0px 0px 3px #00000066);
   }
+
   nav#globalnav.colorchange ul#navmenu li a:hover {
     color: #9ed200;
   }
+
+  /* イラストPC設定 */
   ul.illust li {
-    position: relative;
-    height: auto;
-    width: calc(100% / 3 - 4px);
-    margin-bottom: 5px;
-    padding: 0;
+    width: calc(100% / 3 - 6px);
+    margin-bottom: 20px;
   }
-/* 3の倍数「以外」に右余白を5px作る*/
+
   ul.illust li:not(:nth-of-type(3n)) {
-    margin-right: 5px;
+    margin-right: 6px;
   }
-  /* 4nの設定は3列表示には不要なので削除（または上書き） */
+
   ul.illust li:nth-of-type(3n) {
     margin-right: 0;
   }
+
   .card-wrapper {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-            flex-direction: row;
+    flex-direction: row;
     flex-wrap: wrap;
     -webkit-box-pack: justify;
-            justify-content: space-between;
+    justify-content: space-between;
   }
+
   .card-wrapper .card {
     width: 43%;
     margin-bottom: 30px;
@@ -973,75 +1003,69 @@ a#totop:hover:before {
   footer p.copyright {
     text-align: right;
   }
+
   .card-wrapper .card {
     width: 31%;
   }
 }
 
-/* ABOUTセクション中央寄せ*/
+/* ============================================================
+   追加の調整
+   ============================================================ */
+
+/* ABOUTセクション中央寄せ */
 .about-section .container {
-  text-align: center; /* 文を中央寄せ */
+  text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Flexboxで中身を中央に配置 */
+  align-items: center;
 }
 
-/* 中のテキストが左に寄らないように調整 */
-.about-section p, 
+.about-section p,
 .about-section h4 {
   text-align: center;
   width: 100%;
 }
 
-/* ナビゲーションメニューのフォント変更 */
-nav#globalnav ul#navmenu li a {
-  font-family: "Kiwi Maru", "Zen Maru Gothic", "Zen Kurenaido", serif;
-}
-/* スマホ版のメニューフォントも念のため指定 */
+/* ナビゲーションフォント */
+nav#globalnav ul#navmenu li a,
 nav#globalnav ul li a {
   font-family: "Kiwi Maru", "Zen Maru Gothic", "Zen Kurenaido", serif;
 }
 
-
-
-/* SNSアイコンを横並びにする */
+/* SNSアイコン */
 .footer-sns {
-  display: flex;       /* 横並び*/
-  gap: 18px;           /* アイコン同士の間隔 */
-  margin-top: 10px;    /* 見出しとの間隔 */
+  display: flex;
+  gap: 18px;
+  margin-top: 10px;
 }
 
-/* SNSアイコンの大きさを調整 */
 .footer-sns img {
   width: 28px;
   height: auto;
-  object-fit: contain; /* 画像が歪まないようにする */
-  cursor: pointer;     /* 重なった時に指マークにする */
-  transition: opacity 0.3s; /* ホバー時の動きを滑らかに */
+  object-fit: contain;
+  cursor: pointer;
+  transition: opacity 0.3s;
 }
 
-/* マウスを乗せた時に少し薄くする */
 .footer-sns img:hover {
   opacity: 0.7;
 }
 
-
-
-/* 更新情報を1行ボックスにしてスクロールさせる設定 */
+/* 更新情報スクロール */
 .news-list {
   margin: 0 0 40px;
   padding: 5px 10px;
-  height: 2.4em;           /* 1行分＋αの高さに固定 */
-  overflow-y: scroll;      /* 縦スクロールを表示 */
-  /*background: #1a1a1a;     /* ボックスを少し明るい黒にして目立たせる */
-  border-radius: 4px;      /* 角を少し丸く */
+  height: 2.4em;
+  overflow-y: scroll;
+  border-radius: 4px;
   font-size: 13px;
 }
 
-/* スクロールバーの見た目（任意：細くして馴染ませる） */
 .news-list::-webkit-scrollbar {
   width: 5px;
 }
+
 .news-list::-webkit-scrollbar-thumb {
   background: #ffffff;
   border-radius: 5px;
@@ -1051,25 +1075,20 @@ nav#globalnav ul li a {
   font-size: 13px;
   color: #ffffff;
   margin: 0;
-  line-height: 2.4em;      /* 高さにあわせて調整 */
+  line-height: 2.4em;
 }
 
-/* PC版の横並びを解除（1行スクロールに特化させるため） */
 @media only screen and (min-width: 768px) {
   .news-list {
-    display: block; 
-    grid-template-columns: none;
+    display: block;
     max-width: 100%;
   }
 }
 
-
-/* 更新情報エリアの区切り線の余白を狭くする */
 .footer-news hr {
-  margin: 10px 0; /* 上下の余白 */
+  margin: 10px 0;
 }
 
-/* ついでに「更新情報」見出しの上の余白もリセット */
 .footer-news h4#news {
-  margin-top: 5px; /* 線との間隔 */
+  margin-top: 5px;
 }
