@@ -593,9 +593,17 @@ ul.illust li a img {
   width: 100%;
   height: auto;
   object-fit: contain;
-  border-radius: 8px; /* お好みで：角を少し丸くすると隙間が強調されます */
+  border: 5px solid #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.05);
+  transition: transform 0.2s, filter 0.2s; 
+  filter: brightness(100%); 
 }
 
+ul.illust li a:hover img {
+  filter: brightness(120%);            /* 1.2倍明るくする */
+  opacity: 1;                          /* 透明度は下げずに明るさだけで表現 */
+}
 /* ============================================================
    プロフィール・その他
    ============================================================ */
