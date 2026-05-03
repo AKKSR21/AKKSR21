@@ -163,7 +163,7 @@ a:hover {
 /* --- ナビゲーション（基本・スマホ版） --- */
 nav#globalnav {
   position: fixed;
-  z-index: 9;
+  z-index: 99;
   top: 0;
   width: 100%;
 }
@@ -240,7 +240,7 @@ p#menubtn {
   color: #000000;
   top: 10px;
   right: 20px;
-  z-index: 10;
+  z-index: 100;
   cursor: pointer;
 }
 
@@ -269,21 +269,26 @@ header img.top-pc { display: none; }
   header img.top-phone { display: none; }
   p#menubtn { display: none; }
 
-  /* ナビゲーションを横並び＆画面いっぱいに */
+  /* ★GPT指摘：nav-flex を横並び＆画面いっぱいに広げる設定 */
   nav#globalnav .nav-flex {
     display: flex;
     align-items: center;
-    max-width: 100% !important;
+    max-width: 100% !important; /* 960pxの制限を突破 */
     width: 100%;
     padding: 0 40px;
+    height: 70px;
+  }
+
+  nav#globalnav h1.logo {
+    flex-shrink: 0; /* ロゴが潰れないように */
   }
 
   nav#globalnav h1.logo a {
     font-size: 35px;
-    padding: 10px 0;
+    padding: 0;
   }
 
-  /* メニューを中央に配置 */
+  /* ★メニューを中央に配置 */
   nav#globalnav ul#navmenu {
     position: relative;
     background: transparent;
@@ -294,16 +299,18 @@ header img.top-pc { display: none; }
     box-shadow: none;
     transition: none;
     flex-direction: row;
-    flex: 1;                /* スペースを占有 */
-    justify-content: center; /* その中で中央寄せ */
+    flex: 1;                /* ロゴとニュースの間のスペースをすべて使う */
+    justify-content: center; /* その中央に寄せる */
     margin: 0;
+    overflow: visible;
   }
 
   nav#globalnav ul#navmenu li a {
-    padding: 20px 20px;
+    padding: 0 20px;
     font-size: 18px;
     font-weight: bold;
     margin: 0;
+    color: #000000;
   }
 
   nav#globalnav.colorchange ul#navmenu li a {
@@ -311,18 +318,18 @@ header img.top-pc { display: none; }
     filter: drop-shadow(0px 0px 3px #00000066);
   }
 
-  /* ニュースボックス（右端） */
+  /* ★ニュースボックス（右端） */
   nav#globalnav .top-news-box {
     display: block;
     flex-shrink: 0;
-    width: 260px;
-    height: 32px;
+    width: 280px;
+    height: 34px;
     padding: 0 15px;
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 16px;
+    border-radius: 17px;
     overflow-y: scroll;
     scrollbar-width: none;
     z-index: 100;
@@ -330,9 +337,9 @@ header img.top-pc { display: none; }
 
   /* 狭いPC画面用の微調整 */
   @media (max-width: 1100px) {
-    nav#globalnav ul#navmenu li a { font-size: 15px; padding: 20px 10px; }
+    nav#globalnav ul#navmenu li a { font-size: 15px; padding: 0 10px; }
     nav#globalnav h1.logo a { font-size: 28px; }
-    nav#globalnav .top-news-box { width: 200px; }
+    nav#globalnav .top-news-box { width: 220px; }
   }
 }
 
@@ -343,7 +350,7 @@ nav#globalnav .top-news-box::-webkit-scrollbar { display: none; }
 .news-inline dd {
   line-height: 32px;
   margin: 0;
-  font-size: 11px;
+  font-size: 12px;
   white-space: nowrap;
   color: inherit;
 }
