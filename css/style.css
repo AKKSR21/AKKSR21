@@ -594,7 +594,7 @@ ul.illust li a img {
   height: auto;
   object-fit: contain;
   border: none;
-  border-radius: 10px;
+  border-radius: 6px;
   transition: transform 0.2s, filter 0.2s; 
   filter: brightness(100%); 
 }
