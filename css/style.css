@@ -1096,6 +1096,24 @@ nav#globalnav ul li a {
 }
 
 
+/* GALLERYセクション内の中央寄*/
+.gallery-section .container {
+  text-align: center;
+}
+
+/* ギャラリー内のh4と説明文pだけ中央、画像リスト(ul)は左寄せを維持 */
+.gallery-section h4,
+.gallery-section p {
+  text-align: center;
+  width: 100%;
+}
+
+/* 漫画タイトルのspanも中央寄せを維持 */
+.gallery-section .illust-title {
+  text-align: center;
+}
+
+
 /* サムネの上の文字 */
 .illust-title {
   display: block;        /* 文字を1行独立させる */
