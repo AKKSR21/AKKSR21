@@ -966,18 +966,21 @@ a#totop:hover:before {
     color: #9ed200;
   }
 
-  /* イラストPC設定 */
+/* イラストPC設定 */
+  ul.illust {
+    gap: 20px 2.5%;      /* 横の隙間を少し広めに確保 */
+  }
+
   ul.illust li {
-    width: calc(100% / 3 - 6px);
-    margin-bottom: 20px;
+    width: 31.6%;        /* 31.6% * 3 + 2.5% * 2 = 99.8% (ほぼ100%) */
+    margin-bottom: 0;
+    display: block;
   }
 
-  ul.illust li:not(:nth-of-type(3n)) {
-    margin-right: 6px;
-  }
-
+  /* 古いマージン設定を完全に打ち消す */
+  ul.illust li:not(:nth-of-type(3n)),
   ul.illust li:nth-of-type(3n) {
-    margin-right: 0;
+    margin-right: 0 !important;
   }
 
   .card-wrapper {
@@ -1004,6 +1007,9 @@ a#totop:hover:before {
     width: 31%;
   }
 }
+
+
+
 
 /* ============================================================
    追加の調整
