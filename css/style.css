@@ -660,8 +660,8 @@ footer {
     padding: 30px 0 30px;                      
 }
 
-/* 画面幅800px以下の場合 */
-@media screen and (max-width: 800px) {
+/* 画面幅650px以下の場合 */
+@media screen and (max-width: 650px) {
     footer {
         background-image: url("../img/footer2.jpg"); 
         background-position: right top;
