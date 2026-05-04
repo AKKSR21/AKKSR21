@@ -660,6 +660,15 @@ footer {
     padding: 30px 0 30px;                      
 }
 
+/* 画面幅が480px以下（スマホ想定）の場合の設定 */
+@media screen and (max-width: 480px) {
+    footer {
+        background-image: url("../img/footer2.jpg"); /* スマホ用画像 */
+        background-position: right top;
+    }
+}
+
+
 footer p.memo {
   margin: 0 auto 10px;
   font-size: 13px;
